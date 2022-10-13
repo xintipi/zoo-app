@@ -6,6 +6,7 @@ import react from '@vitejs/plugin-react';
 import dayjs from 'dayjs';
 import * as path from 'path';
 import { defineConfig } from 'vite';
+import vitePluginImp from 'vite-plugin-imp';
 
 // @ts-ignore
 import pkg from './package.json';
@@ -41,7 +42,28 @@ export default defineConfig({
     chunkSizeWarningLimit: 2000,
   },
   define: { __APP_INFO__: JSON.stringify(__APP_INFO__) },
-  plugins: [svgr(), react()],
+  css: {
+    modules: {
+      localsConvention: 'camelCaseOnly',
+    },
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+      },
+    },
+  },
+  plugins: [
+    svgr(),
+    react(),
+    vitePluginImp({
+      libList: [
+        {
+          libName: 'antd',
+          style: (name) => `antd/es/${name}/style`,
+        },
+      ],
+    }),
+  ],
   test: {
     include: ['src/**/*.{test,spec}.{jsx,tsx}'],
     globals: true,
