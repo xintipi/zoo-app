@@ -1,13 +1,14 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 import svgr from '@honkhonk/vite-plugin-svgr';
+import react from '@vitejs/plugin-react';
 import dayjs from 'dayjs';
+import * as path from 'path';
+import { defineConfig } from 'vite';
+
 // @ts-ignore
 import pkg from './package.json';
-import * as path from 'path';
 
 const { dependencies, devDependencies, name, version, author } = pkg;
 const __APP_INFO__ = {
