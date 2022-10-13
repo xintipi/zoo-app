@@ -20,11 +20,11 @@ npm run build:development
 
 ```bash
 npm run build:staging
-````
+```
 
 ```bash
 npm run build:production
-````
+```
 
 - Check eslint
 
@@ -41,7 +41,7 @@ npm run prettier
 ## How to use husky
 
 ```bash
-husky install 
+husky install
 ```
 
 ```bash
