@@ -2,8 +2,8 @@ import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 
 import { COOKIE } from '@/enums';
+import { IUserProfile } from '@/interface/user/user.interface';
 import { State } from '@/stores';
-import { IUserProfile } from '@/types/auth';
 
 import { login, logout } from './actions';
 

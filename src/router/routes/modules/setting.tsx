@@ -1,22 +1,22 @@
 import { RouteObject } from 'react-router-dom';
 
-import Base from '@/layouts/Base/Base';
-import Default from '@/layouts/Default/Default';
 import CreateStaff from '@/pages/Setting/Staff/CreateStaff';
 import EditStaff from '@/pages/Setting/Staff/EditStaff';
 import Staff from '@/pages/Setting/Staff/Staff';
+import { BaseLayout, DefaultLayout } from '@/router/constant';
 import WrapperRoute from '@/router/guards/WrapperRoute';
 
 const setting: RouteObject = {
   path: 'setting',
-  element: <Default />,
+  element: <DefaultLayout />,
   children: [
     {
       path: 'staff',
-      element: <Base />,
+      element: <BaseLayout />,
       children: [
         {
           path: '',
+          index: true,
           element: (
             <WrapperRoute element={<Staff />} title="title:staff" guard="auth" auth />
           ),

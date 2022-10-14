@@ -1,0 +1,25 @@
+@import '@/styles/shared/variables/_general.scss';
+
+.drawer-language {
+  :global .ant-drawer-wrapper-body {
+    .ant-drawer-body {
+      > p {
+        color: $color-primary-3;
+      }
+    }
+  }
+
+  .wrapper {
+    list-style-type: none;
+
+    :global li {
+      cursor: pointer;
+      width: fit-content;
+      &:hover,
+      &.active {
+        text-decoration: underline;
+        color: $color-primary-4;
+      }
+    }
+  }
+}

@@ -28,9 +28,7 @@ function Default(props: IProps) {
               minHeight: 280,
             }}
           >
-            <ConfigProvider>
-              <Outlet />
-            </ConfigProvider>
+            <Outlet />
           </Content>
         </Layout>
       </Layout>

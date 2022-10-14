@@ -44,7 +44,8 @@ export default defineConfig({
   define: { __APP_INFO__: JSON.stringify(__APP_INFO__) },
   css: {
     modules: {
-      localsConvention: 'camelCaseOnly',
+      scopeBehaviour: 'local',
+      localsConvention: 'camelCase',
     },
     preprocessorOptions: {
       less: {

@@ -1,0 +1,12 @@
+@import '@/styles/shared/mixins';
+
+.login {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('@/assets/background.svg');
+  @include background-img(center, contain);
+
+  .icon-drawer {
+    @include position(absolute, 15px, 15px);
+  }
+}

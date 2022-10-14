@@ -1,6 +1,6 @@
 const enum LocalesEnum {
-  En = 'en',
-  Ja = 'ja',
+  en_US = 'en',
+  ja_JP = 'ja',
 }
 
 export default LocalesEnum;

@@ -1,8 +1,8 @@
 import { forEach, keys } from 'lodash-es';
 import { Navigate, RouteObject } from 'react-router-dom';
 
-import Default from '@/layouts/Default/Default';
 import Dashboard from '@/pages/Dashboard/Dashboard';
+import { DefaultLayout } from '@/router/constant';
 import WrapperRoute from '@/router/guards/WrapperRoute';
 
 const modules = import.meta.globEager('./modules/**/*.tsx') as any;
@@ -16,7 +16,7 @@ forEach(keys(modules), (key) => {
 
 export const rootRoute: RouteObject = {
   path: '/',
-  element: <Default />,
+  element: <DefaultLayout />,
   children: [
     {
       path: '',
@@ -31,7 +31,7 @@ export const rootRoute: RouteObject = {
 
 export const exceptionRoute: RouteObject = {
   path: '*',
-  element: <WrapperRoute title="title:404" element={<Navigate to="404" replace />} />,
+  element: <Navigate to="404" replace />,
 };
 
 // Basic routing without permission

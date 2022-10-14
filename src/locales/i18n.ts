@@ -19,7 +19,8 @@ i18n
   // pass the i18n instance to react-i18next.
   .use(initReactI18next)
   .init({
-    fallbackLng: LOCALES.Ja,
+    fallbackLng: LOCALES.ja_JP,
+    debug: true,
     // Set default namespace
     defaultNS: 'common',
     resources,

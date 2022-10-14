@@ -6,19 +6,18 @@ img {
   display: block;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 游ゴシック, YuGothic, メイリオ,
-    ヒラギノ角ゴ ProN W3, Hiragino Kaku Gothic ProN, Meiryo, sans-serif !important;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #333333;
+  font-family: $font-family-heading;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-primary-1;
 }
 input,
 button,
 select,
 textarea {
   outline: none;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-family: $font-family-form;
+  font-size: $font-size-base;
 }
 input {
   line-height: normal;
@@ -32,5 +31,5 @@ h3,
 h4,
 h5,
 h6 {
-  color: #1b212d;
+  color: $color-primary-2;
 }
