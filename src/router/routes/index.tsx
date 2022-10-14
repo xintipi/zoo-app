@@ -1,4 +1,4 @@
-import { forEach, keys } from 'lodash-es';
+import { forEach, keys } from 'lodash';
 import { Navigate, RouteObject } from 'react-router-dom';
 
 import Dashboard from '@/pages/Dashboard/Dashboard';

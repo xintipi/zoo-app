@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { Formik, FormikHelpers } from 'formik';
 import { useTranslation } from 'react-i18next';
 
-import Logo from '@/assets/logo.svg?component';
+import { ReactComponent as Logo } from '@/assets/logo.svg';
 import DrawerLanguage from '@/components/DrawerLanguage/DrawerLanguage';
 import FormInput from '@/components/Shared/FormInput/FormInput';
 import yup from '@/config/validation.config';
