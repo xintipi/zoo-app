@@ -1,16 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { CurriedGetDefaultMiddleware } from '@reduxjs/toolkit/dist/getDefaultMiddleware';
 
-import auth from './modules/auth/reducers';
-import loader from './modules/loader/reducers';
+import rootReducer from './rootReducer';
 
 const middlewareConfiguration = { serializableCheck: false };
 
 const store = configureStore({
-  reducer: {
-    auth,
-    loader,
-  },
+  reducer: rootReducer,
   devTools: {
     name: 'zoo_app',
   },
@@ -18,6 +14,8 @@ const store = configureStore({
     getDefaultMiddleware(middlewareConfiguration),
 });
 
-export type State = ReturnType<typeof store.getState>;
+export type State = ReturnType<typeof rootReducer>;
+export type Dispatch = typeof store.dispatch;
+export type Store = typeof store;
 
 export default store;

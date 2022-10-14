@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import AuthGuard from './AuthGuard';
@@ -14,10 +14,12 @@ interface WrapperRouteProps {
 const WrapperRoute: FC<WrapperRouteProps> = ({ title, auth, guard, ...props }) => {
   const { t } = useTranslation();
 
-  const component = {
-    login: <LoginGuard {...props} />,
-    auth: <AuthGuard {...props} />,
-  };
+  const component = useMemo(() => {
+    return {
+      login: <LoginGuard {...props} />,
+      auth: <AuthGuard {...props} />,
+    };
+  }, [auth, guard]);
 
   if (title) {
     document.title = `${t(title)} | ${import.meta.env.VITE_APP_TITLE}`;

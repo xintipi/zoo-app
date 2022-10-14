@@ -19,6 +19,7 @@
     "regex": "{{field}}のフォーマットが正しくありません",
     "required": "{{field}}は必須項目です",
     "size": "{{field}}は {{size}}KB 以内でなければなりません",
-    "url": "{{field}}は有効なURLではありません"
+    "url": "{{field}}は有効なURLではありません",
+    "regex_password": "大文字・小文字・記号を含む英数字でご入力ください。"
   }
 }

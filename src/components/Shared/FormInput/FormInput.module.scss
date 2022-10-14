@@ -1,0 +1,19 @@
+@import '@/styles/shared/variables';
+
+.form-group {
+  max-width: 375px;
+
+  .form-content {
+    .form-label {
+      display: block;
+      color: $dark;
+      opacity: 0.85;
+
+      &.required:after {
+        content: '*';
+        margin-left: 0.25rem;
+        color: $color-primary-5;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "email_label": "ユーザー名",
+  "email_placeholder": "ユーザID(E メールアドレス)を入力してください",
+  "password_label": "パスワード",
+  "password_placeholder": "パスワードを入力する",
+  "submit_login": "ログイン"
+}

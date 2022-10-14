@@ -20,7 +20,6 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: LOCALES.ja_JP,
-    debug: true,
     // Set default namespace
     defaultNS: 'common',
     resources,

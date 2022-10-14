@@ -1,15 +1,20 @@
 import { AlignRightOutlined } from '@ant-design/icons';
+import { Draft } from '@reduxjs/toolkit';
 import { Drawer, DrawerProps } from 'antd';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { LOCALES } from '@/enums';
+import { Locales } from '@/interface/locales/locales.interface';
+import { State } from '@/stores';
+import { setLocaleState } from '@/stores/modules/global.store';
 
 import styles from './DrawerLanguage.module.scss';
 
 interface ILocales {
-  locale: string;
+  locale: Locales;
   value: string;
 }
 
@@ -24,9 +29,12 @@ const locales: ILocales[] = [
 
 function DrawerLanguage({ className }: IProps) {
   const { t, i18n } = useTranslation();
+  const { locale } = useSelector((state: Draft<State>) => state.global);
+  const dispatch = useDispatch();
   const [open, setOpen] = useState<DrawerProps['open']>(false);
 
-  const onChangeLocales = (locale: string) => {
+  const onChangeLocales = (locale: Locales) => {
+    dispatch(setLocaleState(locale));
     i18n.changeLanguage(locale).then((r) => r);
   };
 
@@ -48,7 +56,7 @@ function DrawerLanguage({ className }: IProps) {
             <li
               role="presentation"
               key={lang.locale}
-              className={clsx('px-5', 'py-5', { active: i18n.language === lang.locale })}
+              className={clsx('px-5', 'py-5', { active: locale === lang.locale })}
               onClick={() => onChangeLocales(lang.locale)}
             >
               {lang.value}

@@ -13,5 +13,9 @@
 @import './base/global';
 @import './base/reset';
 
+// component
+@import './components/input';
+
 // layout
 @import './layouts/header';
+@import './layouts/container';

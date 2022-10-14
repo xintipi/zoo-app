@@ -1,0 +1,18 @@
+.ant-form-item-control-input {
+  min-height: 39px !important;
+
+  .ant-form-item-control-input-content {
+    > input {
+      font-size: 13px;
+      padding: 13px 15px;
+      height: 39px;
+    }
+
+    .ant-input-password {
+      height: 39px;
+      input {
+        height: auto;
+      }
+    }
+  }
+}
