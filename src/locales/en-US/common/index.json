@@ -7,5 +7,6 @@
   "logout": "Logout",
   "dashboard": "Dashboard",
   "setting": "Setting",
-  "staff_registration": "Staff registration"
+  "staff_registration": "Staff registration",
+  "basic_setting": "Basic setting"
 }

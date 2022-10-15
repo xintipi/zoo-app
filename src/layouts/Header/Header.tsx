@@ -7,6 +7,7 @@ import {
 import { Dropdown, Layout, Menu, MenuProps } from 'antd';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
 import clsx from 'clsx';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -56,40 +57,30 @@ function Header({ collapsed, toggle }: IProps) {
   };
 
   return (
-    <HeaderComponent
-      className={clsx(
-        styles.layoutPageHeader,
-        'd-flex',
-        'justify-content-between',
-        'align-items-center',
-      )}
-    >
+    <HeaderComponent className={clsx(styles.layoutPageHeader, 'd-flex')}>
       <div
         className={clsx(
-          styles.logo,
+          styles.sidebarTrigger,
           'd-flex',
-          'justify-content-center',
+          'justify-content-start',
           'align-items-center',
+          'px-15',
         )}
         style={{ width: collapsed ? 70 : 200 }}
       >
-        <Link to="/dashboard">
-          <img src={Logo} alt="Logo" />
-        </Link>
+        <span onClick={toggle}>
+          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+        </span>
       </div>
       <div
         className={clsx(
           styles.layoutPageHeaderMain,
           'd-flex',
-          'justify-content-between',
-          'align-items-center',
+          'justify-content-end',
           'py-0',
           'px-15',
         )}
       >
-        <span className={clsx(styles.sidebarTrigger)} onClick={toggle}>
-          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        </span>
         <div className={clsx(styles.actions)}>
           <DrawerLanguage
             className="d-flex"
@@ -116,4 +107,4 @@ function Header({ collapsed, toggle }: IProps) {
   );
 }
 
-export default Header;
+export default memo(Header);

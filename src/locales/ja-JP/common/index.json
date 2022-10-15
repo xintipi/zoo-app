@@ -7,5 +7,6 @@
   "logout": "サインアウト",
   "dashboard": "ダッシュボード",
   "setting": "設定",
-  "staff_registration": "スタッフ登録"
+  "staff_registration": "スタッフ登録",
+  "basic_setting": "標準設定"
 }

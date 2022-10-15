@@ -8,23 +8,14 @@
   @include box-shadow(0, 4px, 10px, $color-primary-6);
   background-color: $white;
 
-  .logo {
-    box-sizing: border-box;
-    z-index: 9;
-
-    img {
-      width: 50px;
-    }
+  .sidebar-trigger svg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
   }
 
   &-main {
     flex: 1;
-
-    .sidebar-trigger svg {
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-    }
 
     .actions {
       height: 100%;

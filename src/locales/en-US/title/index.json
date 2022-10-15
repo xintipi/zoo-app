@@ -4,5 +4,7 @@
   "dashboard": "Dashboard",
   "staff": "Staff",
   "staff_new": "Staff new",
-  "staff_edit": "Staff edit"
+  "staff_edit": "Staff edit",
+  "basic_setting": "Basic setting",
+  "basic_setting_new": "Basic setting new"
 }
