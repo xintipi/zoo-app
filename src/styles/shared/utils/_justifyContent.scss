@@ -3,7 +3,7 @@ $justify-content-utils: (
   'end': end,
   'center': center,
   'between': space-between,
-  'around': around,
+  'around': space-around,
 );
 
 @each $key, $val in $justify-content-utils {

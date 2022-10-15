@@ -87,10 +87,9 @@ function Sidebar({ collapsed, toggle }: IProps) {
           { 'justify-content-center': collapsed },
           { 'px-15': !collapsed },
         )}
+        onClick={toggle}
       >
-        <span onClick={toggle}>
-          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        </span>
+        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </div>
       <MenuComponent
         items={menuList}

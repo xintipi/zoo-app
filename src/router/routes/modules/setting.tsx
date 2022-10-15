@@ -1,14 +1,14 @@
 import { Outlet, RouteObject } from 'react-router-dom';
 
+import Default from '@/layouts/Default/Default';
 import Staff from '@/pages/Setting/Staff/Staff';
 import StaffEdit from '@/pages/Setting/Staff/StaffEdit';
 import StaffNew from '@/pages/Setting/Staff/StaffNew';
-import { DefaultLayout } from '@/router/constant';
 import WrapperRoute from '@/router/guards/WrapperRoute';
 
 const setting: RouteObject = {
   path: 'setting',
-  element: <DefaultLayout />,
+  element: <Default />,
   children: [
     {
       path: '',

@@ -1,5 +1,6 @@
 import { FC, ReactElement, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 
 import AuthGuard from './AuthGuard';
 import LoginGuard from './LoginGuard';
@@ -13,13 +14,14 @@ interface WrapperRouteProps {
 
 const WrapperRoute: FC<WrapperRouteProps> = ({ title, auth, guard, ...props }) => {
   const { t } = useTranslation();
+  const location = useLocation();
 
   const component = useMemo(() => {
     return {
       login: <LoginGuard {...props} />,
       auth: <AuthGuard {...props} />,
     };
-  }, [auth, guard]);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (title) {

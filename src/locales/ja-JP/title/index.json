@@ -1,10 +1,11 @@
 {
-  "404": "Page not found",
-  "login": "Login",
-  "dashboard": "Dashboard",
-  "staff": "Staff",
-  "staff_new": "Staff new",
-  "staff_edit": "Staff edit",
-  "basic_setting": "Basic setting",
-  "basic_setting_new": "Basic setting new"
+  "404": "ページが見つかりません",
+  "403": "禁断",
+  "500": "サーバーエラー",
+  "login": "ログインする",
+  "dashboard": "ダッシュボード",
+  "staff": "スタッフ",
+  "staff_new": "スタッフ 新しい",
+  "staff_edit": "スタッフ編集",
+  "profile": "プロフィール"
 }

@@ -7,6 +7,7 @@ import axios, {
 import Cookies from 'js-cookie';
 
 import { COOKIE } from '@/enums';
+import { history } from '@/router/history';
 
 const instance: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_AXIOS_BASE_URL,
@@ -29,7 +30,13 @@ instance.interceptors.response.use(
   (response: AxiosResponse) => response,
   async (error): Promise<AxiosError> => {
     // Do something with response error
-    // const { status, data } = error.response;
+    const { status } = error.response;
+
+    if (status !== 401) history.replace(`/${status}`);
+
+    if (status === 401) {
+      history.replace('/login');
+    }
 
     return Promise.reject(error);
   },
