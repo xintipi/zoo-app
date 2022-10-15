@@ -1,0 +1,7 @@
+{
+  "403": "Very sorry. You have not authorized access to this page.",
+  "404": "We're sorry, but the page you're looking for cannot be found.",
+  "title_404": "Page not found",
+  "title_403": "Forbidden",
+  "back_dashboard": "Go to dashboard"
+}

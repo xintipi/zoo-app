@@ -1,0 +1,40 @@
+@import '@/styles/shared/variables';
+@import '@/styles/shared/mixins';
+
+.layout-page-header {
+  padding: 0 !important;
+  z-index: 9;
+  height: 56px;
+  @include box-shadow(0, 4px, 10px, $color-primary-6);
+  background-color: $white;
+
+  .logo {
+    box-sizing: border-box;
+    z-index: 9;
+
+    img {
+      width: 70px;
+    }
+  }
+
+  &-main {
+    flex: 1;
+
+    .actions {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .user-action {
+        border: 1px solid $color-primary-6;
+        @include flexbox(center, center);
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-left: 20px;
+      }
+    }
+  }
+}

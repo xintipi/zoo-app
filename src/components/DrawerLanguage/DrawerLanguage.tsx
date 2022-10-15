@@ -1,11 +1,11 @@
-import { AlignRightOutlined } from '@ant-design/icons';
 import { Draft } from '@reduxjs/toolkit';
-import { Drawer, DrawerProps } from 'antd';
+import { Drawer, DrawerProps, Tooltip, TooltipProps } from 'antd';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { ReactComponent as LanguageSVG } from '@/assets/icons/language.svg';
 import { LOCALES } from '@/enums';
 import { Locales } from '@/interface/locales/locales.interface';
 import { State } from '@/stores';
@@ -19,7 +19,9 @@ interface ILocales {
 }
 
 interface IProps {
-  className: string;
+  className?: string;
+  title?: TooltipProps['title'];
+  placement?: TooltipProps['placement'];
 }
 
 const locales: ILocales[] = [
@@ -27,7 +29,7 @@ const locales: ILocales[] = [
   { locale: LOCALES.en_US, value: 'English' },
 ];
 
-function DrawerLanguage({ className }: IProps) {
+function DrawerLanguage({ className, title, placement }: IProps) {
   const { t, i18n } = useTranslation();
   const { locale } = useSelector((state: Draft<State>) => state.global);
   const dispatch = useDispatch();
@@ -40,7 +42,13 @@ function DrawerLanguage({ className }: IProps) {
 
   return (
     <div className={className}>
-      <AlignRightOutlined style={{ fontSize: '20px' }} onClick={() => setOpen(true)} />
+      <Tooltip title={title} placement={placement}>
+        <LanguageSVG
+          className="fs-20"
+          style={{ cursor: 'pointer' }}
+          onClick={() => setOpen(true)}
+        />
+      </Tooltip>
 
       <Drawer
         title={t('common:language')}
@@ -67,5 +75,9 @@ function DrawerLanguage({ className }: IProps) {
     </div>
   );
 }
+
+DrawerLanguage.defaultProps = {
+  placement: 'bottom',
+};
 
 export default DrawerLanguage;

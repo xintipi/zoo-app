@@ -24,7 +24,9 @@ export const rootRoute: RouteObject = {
     },
     {
       path: 'dashboard',
-      element: <WrapperRoute element={<Dashboard />} guard="auth" auth />,
+      element: (
+        <WrapperRoute title="title:dashboard" element={<Dashboard />} guard="auth" auth />
+      ),
     },
   ],
 };

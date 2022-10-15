@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button, Tooltip } from 'antd';
 import clsx from 'clsx';
 import { Formik, FormikHelpers } from 'formik';
 import { useTranslation } from 'react-i18next';
@@ -49,7 +49,11 @@ function Login() {
     <div
       className={clsx(styles.login, 'd-flex', 'align-items-center', 'position-relative')}
     >
-      <DrawerLanguage className={clsx(styles.iconDrawer)} />
+      <DrawerLanguage
+        className={clsx(styles.iconDrawer)}
+        title={t('common:change_language')}
+        placement="left"
+      />
 
       <div className={clsx(styles.containerTight, 'container-tight', 'py-6')}>
         <Formik

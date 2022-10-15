@@ -1,4 +1,8 @@
 {
   "select_language": "Please select the language",
-  "language": "Language"
+  "language": "Language",
+  "change_language": "Change language",
+  "user": "User",
+  "user_profile": "User profile",
+  "logout": "Logout"
 }
