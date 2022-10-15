@@ -1,5 +1,19 @@
 @import '@/styles/shared/variables';
 
 .layout-page-sider {
-  background-color: $white;
+  background-color: $slider-connect-bg;
+  :global li {
+    color: $white;
+  }
+
+  .sidebar-trigger {
+    background-color: $slider-connect-bg;
+    height: 53px;
+    svg {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      color: $white;
+    }
+  }
 }

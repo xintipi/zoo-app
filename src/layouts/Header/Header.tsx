@@ -18,12 +18,7 @@ import styles from './Header.module.scss';
 
 const { Header: HeaderComponent } = Layout;
 
-interface IProps {
-  collapsed: boolean;
-  toggle: () => void;
-}
-
-function Header({ collapsed, toggle }: IProps) {
+function Header() {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -58,20 +53,6 @@ function Header({ collapsed, toggle }: IProps) {
 
   return (
     <HeaderComponent className={clsx(styles.layoutPageHeader, 'd-flex')}>
-      <div
-        className={clsx(
-          styles.sidebarTrigger,
-          'd-flex',
-          'justify-content-start',
-          'align-items-center',
-          'px-15',
-        )}
-        style={{ width: collapsed ? 70 : 200 }}
-      >
-        <span onClick={toggle}>
-          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        </span>
-      </div>
       <div
         className={clsx(
           styles.layoutPageHeaderMain,

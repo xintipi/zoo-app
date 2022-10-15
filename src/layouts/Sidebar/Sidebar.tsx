@@ -1,4 +1,9 @@
-import { HomeOutlined, SettingOutlined } from '@ant-design/icons';
+import {
+  HomeOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  SettingOutlined,
+} from '@ant-design/icons';
 import { Draft } from '@reduxjs/toolkit';
 import { Layout } from 'antd';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
@@ -17,9 +22,10 @@ const { Sider } = Layout;
 
 interface IProps {
   collapsed: boolean;
+  toggle: () => void;
 }
 
-function Sidebar({ collapsed }: IProps) {
+function Sidebar({ collapsed, toggle }: IProps) {
   const location = useLocation();
   const { t } = useTranslation();
   const { locale } = useSelector((state: Draft<State>) => state.global);
@@ -72,6 +78,20 @@ function Sidebar({ collapsed }: IProps) {
       collapsed={collapsed}
       breakpoint="md"
     >
+      <div
+        className={clsx(
+          styles.sidebarTrigger,
+          'd-flex',
+          'align-items-center',
+          { 'justify-content-end': !collapsed },
+          { 'justify-content-center': collapsed },
+          { 'px-15': !collapsed },
+        )}
+      >
+        <span onClick={toggle}>
+          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+        </span>
+      </div>
       <MenuComponent
         items={menuList}
         openKey={openKey}

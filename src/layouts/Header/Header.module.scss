@@ -5,16 +5,10 @@
   padding: 0 !important;
   z-index: 9;
   height: 56px;
-  @include box-shadow(0, 4px, 10px, $color-primary-6);
   background-color: $white;
 
-  .sidebar-trigger svg {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
-
   &-main {
+    @include box-shadow(4px, 4px, 10px, $color-primary-6);
     flex: 1;
 
     .actions {

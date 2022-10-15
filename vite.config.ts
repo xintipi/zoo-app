@@ -85,6 +85,14 @@ export default defineConfig({
     preprocessorOptions: {
       less: {
         javascriptEnabled: true,
+        modifyVars: {
+          '@btn-primary-bg': '#042e59',
+          '@menu-bg': '#042e59',
+          '@menu-item-color': '#fff',
+          '@menu-highlight-color': '#ade9ff',
+          '@menu-item-active-bg': '#064780',
+          '@menu-inline-submenu-bg': '#042e59',
+        },
       },
     },
   },

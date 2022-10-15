@@ -16,10 +16,10 @@ function Default() {
 
   return (
     <Layout style={{ height: '100%' }}>
-      <Header collapsed={collapsed} toggle={toggle} />
+      <Sidebar collapsed={collapsed} toggle={toggle} />
 
       <Layout>
-        <Sidebar collapsed={collapsed} />
+        <Header />
 
         <Layout style={{ padding: '0 24px 24px' }}>
           <Content
