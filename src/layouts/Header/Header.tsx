@@ -4,7 +4,8 @@ import {
   MenuUnfoldOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { Dropdown, Layout, Menu } from 'antd';
+import { Dropdown, Layout, Menu, MenuProps } from 'antd';
+import { ItemType } from 'antd/es/menu/hooks/useItems';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +15,7 @@ import DrawerLanguage from '@/components/DrawerLanguage/DrawerLanguage';
 
 import styles from './Header.module.scss';
 
-const { Header: HeaderLayout } = Layout;
+const { Header: HeaderComponent } = Layout;
 
 interface IProps {
   collapsed: boolean;
@@ -25,29 +26,37 @@ function Header({ collapsed, toggle }: IProps) {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const menu = (
-    <Menu>
-      <Menu.Item key="1" style={{ padding: '5px 15px' }}>
-        <span>
-          <UserOutlined style={{ fontSize: '15px' }} />
-          <span className="ml-10" onClick={() => navigate('/dashboard')}>
-            {t('common:user_profile')}
-          </span>
-        </span>
-      </Menu.Item>
-      <Menu.Item key="2" style={{ padding: '5px 15px' }}>
-        <span>
-          <LogoutOutlined />
-          <span className="ml-10" onClick={() => navigate('/login')}>
-            {t('common:logout')}
-          </span>
-        </span>
-      </Menu.Item>
-    </Menu>
-  );
+  const menus: ItemType[] = [
+    {
+      key: 'profile',
+      label: t('common:user_profile'),
+      icon: <UserOutlined className="fs-15" />,
+    },
+    {
+      key: 'logout',
+      label: t('common:logout'),
+      icon: <LogoutOutlined className="fs-15" />,
+    },
+  ];
+
+  const onClick: MenuProps['onClick'] = (event) => {
+    if (event.key === 'profile') {
+      onHandleProfile();
+    } else if (event.key === 'logout') {
+      onHandleLogout();
+    }
+  };
+
+  const onHandleProfile = () => {
+    navigate('/profile');
+  };
+
+  const onHandleLogout = () => {
+    navigate('/login');
+  };
 
   return (
-    <HeaderLayout
+    <HeaderComponent
       className={clsx(
         styles.layoutPageHeader,
         'd-flex',
@@ -86,14 +95,22 @@ function Header({ collapsed, toggle }: IProps) {
             placement="bottom"
           />
 
-          <Dropdown overlay={menu}>
+          <Dropdown
+            overlay={
+              <Menu
+                className={clsx(styles.dropdownMenu)}
+                onClick={onClick}
+                items={menus}
+              />
+            }
+          >
             <span className={clsx(styles.userAction, 'px-0', 'py-0')}>
               <UserOutlined />
             </span>
           </Dropdown>
         </div>
       </div>
-    </HeaderLayout>
+    </HeaderComponent>
   );
 }
 
