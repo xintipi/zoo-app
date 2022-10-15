@@ -22,7 +22,7 @@ const setting: RouteObject = {
         },
 
         {
-          path: 'new',
+          path: 'staff/new',
           element: (
             <WrapperRoute
               element={<StaffNew />}
@@ -34,7 +34,7 @@ const setting: RouteObject = {
         },
 
         {
-          path: ':id/edit',
+          path: 'staff/:id/edit',
           element: (
             <WrapperRoute
               element={<StaffEdit />}
