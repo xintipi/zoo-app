@@ -1,5 +1,5 @@
-import { ConfigProvider, Layout } from 'antd';
-import { ReactElement } from 'react';
+import { Layout } from 'antd';
+import { ReactElement, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Header from '../Header/Header';
@@ -7,17 +7,19 @@ import Sidebar from '../Sidebar/Sidebar';
 
 const { Content } = Layout;
 
-interface IProps {
-  children?: ReactElement;
-}
+function Default() {
+  const [collapsed, setCollapsed] = useState<boolean>(false);
 
-function Default(props: IProps) {
+  const toggle = () => {
+    setCollapsed(!collapsed);
+  };
+
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <Header />
+    <Layout style={{ height: '100%' }}>
+      <Header collapsed={collapsed} toggle={toggle} />
 
       <Layout>
-        <Sidebar />
+        <Sidebar collapsed={collapsed} />
 
         <Layout style={{ padding: '0 24px 24px' }}>
           <Content

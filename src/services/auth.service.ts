@@ -1,7 +1,7 @@
 import { useAxios } from '@/hooks';
-import { IResponseType } from '@/interface/axios/axios.interface';
-import { ILoginRequest, IToken } from '@/interface/user/login.interface';
-import { IUserProfile } from '@/interface/user/user.interface';
+import { IResponseType } from '@/interface/axios.interface';
+import { ILoginRequest, IToken } from '@/interface/login.interface';
+import { IUserProfile } from '@/interface/user.interface';
 
 const { Get, Post, Delete } = useAxios();
 

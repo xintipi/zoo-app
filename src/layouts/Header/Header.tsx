@@ -4,7 +4,7 @@ import {
   MenuUnfoldOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { Dropdown, Layout, Menu, Tooltip } from 'antd';
+import { Dropdown, Layout, Menu } from 'antd';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -62,7 +62,7 @@ function Header({ collapsed, toggle }: IProps) {
           'justify-content-center',
           'align-items-center',
         )}
-        style={{ width: collapsed ? 80 : 200 }}
+        style={{ width: collapsed ? 70 : 200 }}
       >
         <img src={Logo} alt="" />
       </div>
@@ -76,11 +76,9 @@ function Header({ collapsed, toggle }: IProps) {
           'px-15',
         )}
       >
-        <div>
-          <span id="sidebar-trigger">
-            {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-          </span>
-        </div>
+        <span className={clsx(styles.sidebarTrigger)} onClick={toggle}>
+          {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+        </span>
         <div className={clsx(styles.actions)}>
           <DrawerLanguage
             className="d-flex"

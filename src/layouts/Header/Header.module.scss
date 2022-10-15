@@ -13,12 +13,18 @@
     z-index: 9;
 
     img {
-      width: 70px;
+      width: 50px;
     }
   }
 
   &-main {
     flex: 1;
+
+    .sidebar-trigger svg {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
 
     .actions {
       height: 100%;

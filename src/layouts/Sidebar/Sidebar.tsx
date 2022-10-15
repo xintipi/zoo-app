@@ -1,43 +1,85 @@
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Layout, Menu } from 'antd';
-import { createElement } from 'react';
+import { HomeOutlined, SettingOutlined } from '@ant-design/icons';
+import { Draft } from '@reduxjs/toolkit';
+import { Layout } from 'antd';
+import { ItemType } from 'antd/es/menu/hooks/useItems';
+import clsx from 'clsx';
+import { SetStateAction, useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
-const { Sider: Slider } = Layout;
+import { State } from '@/stores';
 
-const items2: MenuProps['items'] = [
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-].map((icon, index) => {
-  const key = String(index + 1);
+import MenuComponent from './Menu';
+import styles from './Sidebar.module.scss';
 
-  return {
-    key: `sub${key}`,
-    icon: createElement(icon),
-    label: `subnav ${key}`,
+const { Sider } = Layout;
 
-    children: new Array(4).fill(null).map((_, j) => {
-      const subKey = index * 4 + j + 1;
-      return {
-        key: subKey,
-        label: `option${subKey}`,
-      };
-    }),
-  };
-});
+interface IProps {
+  collapsed: boolean;
+}
 
-function Sidebar() {
+function Sidebar({ collapsed }: IProps) {
+  const location = useLocation();
+  const { t } = useTranslation();
+  const { locale } = useSelector((state: Draft<State>) => state.global);
+
+  const [openKey, setOpenkey] = useState<string>();
+  const [selectedKey, setSelectedKey] = useState<string>(location.pathname);
+
+  const menuList: ItemType[] = useMemo(() => {
+    return [
+      {
+        label: t('common:dashboard'),
+        icon: <HomeOutlined />,
+        key: '/dashboard',
+      },
+
+      {
+        label: t('common:setting'),
+        icon: <SettingOutlined />,
+        key: '/setting',
+        children: [
+          {
+            label: t('common:staff_registration'),
+            key: '/setting/staff',
+          },
+        ],
+      },
+    ];
+  }, [locale]);
+
+  const onChangeOpenKey = useCallback(
+    (k: SetStateAction<string | undefined>) => {
+      setOpenkey(k);
+    },
+    [openKey],
+  );
+
+  const onChangeSelectedKey = useCallback(
+    (k: SetStateAction<string>) => {
+      setSelectedKey(k);
+    },
+    [selectedKey],
+  );
+
   return (
-    <Slider width={200} className="site-layout-background">
-      <Menu
-        mode="inline"
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        style={{ height: '100%', borderRight: 0 }}
-        items={items2}
+    <Sider
+      className={clsx(styles.layoutPageSider)}
+      trigger={null}
+      collapsible
+      collapsedWidth={80}
+      collapsed={collapsed}
+      breakpoint="md"
+    >
+      <MenuComponent
+        items={menuList}
+        openKey={openKey}
+        onChangeOpenKey={onChangeOpenKey}
+        selectedKey={selectedKey}
+        onChangeSelectedKey={onChangeSelectedKey}
       />
-    </Slider>
+    </Sider>
   );
 }
 

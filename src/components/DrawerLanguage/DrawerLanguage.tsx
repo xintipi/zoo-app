@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { ReactComponent as LanguageSVG } from '@/assets/icons/language.svg';
 import { LOCALES } from '@/enums';
-import { Locales } from '@/interface/locales/locales.interface';
+import { Locales } from '@/interface/locales.interface';
 import { State } from '@/stores';
 import { setLocaleState } from '@/stores/modules/global.store';
 

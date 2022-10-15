@@ -4,5 +4,8 @@
   "change_language": "言語を変更",
   "user": "ユーザー",
   "user_profile": "プロフィール",
-  "logout": "サインアウト"
+  "logout": "サインアウト",
+  "dashboard": "ダッシュボード",
+  "setting": "設定",
+  "staff_registration": "スタッフ登録"
 }

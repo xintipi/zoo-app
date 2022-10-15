@@ -4,5 +4,8 @@
   "change_language": "Change language",
   "user": "User",
   "user_profile": "User profile",
-  "logout": "Logout"
+  "logout": "Logout",
+  "dashboard": "Dashboard",
+  "setting": "Setting",
+  "staff_registration": "Staff registration"
 }

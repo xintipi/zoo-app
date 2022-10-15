@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Locales } from '@/interface/locales/locales.interface';
+import { Locales } from '@/interface/locales.interface';
 import { i18n } from '@/locales';
 
 interface IState {

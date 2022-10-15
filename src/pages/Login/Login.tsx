@@ -7,7 +7,7 @@ import { ReactComponent as Logo } from '@/assets/logo.svg';
 import DrawerLanguage from '@/components/DrawerLanguage/DrawerLanguage';
 import FormInput from '@/components/Shared/FormInput/FormInput';
 import yup from '@/config/validation.config';
-import { ILoginRequest } from '@/interface/user/login.interface';
+import { ILoginRequest } from '@/interface/login.interface';
 
 import styles from './Login.module.scss';
 
