@@ -22,9 +22,7 @@
 
     .actions {
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flexbox(center, center);
 
       .user-action {
         border: 1px solid $color-primary-6;
