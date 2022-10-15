@@ -34,7 +34,7 @@ const MenuComponent: FC<IMenuProps> = (props) => {
       selectedKeys={[selectedKey]}
       openKeys={openKey ? [openKey] : []}
       onOpenChange={onOpenChange}
-      onSelect={(k) => onMenuClick(k.key)}
+      onSelect={(ctx) => onMenuClick(ctx.key)}
       className={clsx(styles.layoutPageSiderMenu)}
       items={items}
     />

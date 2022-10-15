@@ -8,7 +8,7 @@ import { Dropdown, Layout, Menu, MenuProps } from 'antd';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Logo from '@/assets/logo.svg';
 import DrawerLanguage from '@/components/DrawerLanguage/DrawerLanguage';
@@ -73,7 +73,9 @@ function Header({ collapsed, toggle }: IProps) {
         )}
         style={{ width: collapsed ? 70 : 200 }}
       >
-        <img src={Logo} alt="" />
+        <Link to="/dashboard">
+          <img src={Logo} alt="Logo" />
+        </Link>
       </div>
       <div
         className={clsx(
