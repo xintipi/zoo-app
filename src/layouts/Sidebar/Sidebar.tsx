@@ -8,7 +8,7 @@ import { Draft } from '@reduxjs/toolkit';
 import { Layout } from 'antd';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
 import clsx from 'clsx';
-import { SetStateAction, useCallback, useMemo, useState } from 'react';
+import { SetStateAction, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -32,6 +32,13 @@ function Sidebar({ collapsed, toggle }: IProps) {
 
   const [openKey, setOpenkey] = useState<string>();
   const [selectedKey, setSelectedKey] = useState<string>(location.pathname);
+
+  useEffect(() => {
+    // reset active menu item
+    if (location.pathname !== selectedKey) {
+      setSelectedKey(location.pathname);
+    }
+  }, [location.pathname]);
 
   const menuList: ItemType[] = useMemo(() => {
     return [

@@ -20,9 +20,12 @@ const globalStore = createSlice({
     setLocaleState(state, action: PayloadAction<Locales>) {
       state.locale = action.payload;
     },
+    setLoadingState(state, action: PayloadAction<boolean>) {
+      state.loading = action.payload;
+    },
   },
 });
 
-export const { setLocaleState } = globalStore.actions;
+export const { setLocaleState, setLoadingState } = globalStore.actions;
 
 export default globalStore.reducer;
