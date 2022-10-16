@@ -1,10 +1,9 @@
-import { Button, Tooltip } from 'antd';
+import { Button } from 'antd';
 import clsx from 'clsx';
 import { Formik, FormikHelpers } from 'formik';
 import { useTranslation } from 'react-i18next';
 
 import { ReactComponent as Logo } from '@/assets/logo.svg';
-import DrawerLanguage from '@/components/DrawerLanguage/DrawerLanguage';
 import FormInput from '@/components/Shared/FormInput/FormInput';
 import yup from '@/config/validation.config';
 import { ILoginRequest } from '@/interface/login.interface';
@@ -49,12 +48,6 @@ function Login() {
     <div
       className={clsx(styles.login, 'd-flex', 'align-items-center', 'position-relative')}
     >
-      <DrawerLanguage
-        className={clsx(styles.iconDrawer)}
-        title={t('common:change_language')}
-        placement="left"
-      />
-
       <div className={clsx(styles.containerTight, 'container-tight', 'py-6')}>
         <Formik
           initialValues={initialValues}
@@ -74,14 +67,7 @@ function Login() {
             return (
               <form onSubmit={handleSubmit} className={clsx(styles.card)}>
                 <div className={clsx(styles.cardBody, 'py-30', 'px-0')}>
-                  <div
-                    className={clsx(
-                      'd-flex',
-                      'justify-content-center',
-                      'mb-30',
-                      styles.loginLogo,
-                    )}
-                  >
+                  <div className={clsx(styles.loginLogo, 'mb-30')}>
                     <Logo />
                   </div>
 

@@ -38,5 +38,10 @@ export const rootRoute: RouteObject = {
   ],
 };
 
+export const exceptionRoute: RouteObject = {
+  path: 'setting',
+  element: <Navigate to="staff" />,
+};
+
 // Basic routing without permission
-export const routeLists = [rootRoute, ...routeModuleList];
+export const routeLists = [rootRoute, exceptionRoute, ...routeModuleList];

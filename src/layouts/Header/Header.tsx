@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 
 import Logo from '@/assets/logo.svg';
+import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 import DrawerLanguage from '@/components/DrawerLanguage/DrawerLanguage';
 
 import styles from './Header.module.scss';
@@ -53,15 +54,9 @@ function Header() {
 
   return (
     <HeaderComponent className={clsx(styles.layoutPageHeader, 'd-flex')}>
-      <div
-        className={clsx(
-          styles.layoutPageHeaderMain,
-          'd-flex',
-          'justify-content-end',
-          'py-0',
-          'px-15',
-        )}
-      >
+      <div className={clsx(styles.layoutPageHeaderMain)}>
+        <Breadcrumb />
+
         <div className={clsx(styles.actions)}>
           <DrawerLanguage
             className="d-flex"

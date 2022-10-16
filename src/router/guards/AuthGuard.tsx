@@ -7,7 +7,7 @@ import { Navigate } from 'react-router-dom';
 
 const AuthGuard: FC<RouteProps> = (props: RouteProps) => {
   // const logged = useSelector(selectLogged);
-  // console.log('auth guard');
+  console.log('auth guard');
   return props.element as ReactElement;
   // return logged ? (props.element as ReactElement) : <Navigate to="/home" />;
 };

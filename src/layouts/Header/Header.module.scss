@@ -9,6 +9,9 @@
 
   &-main {
     @include box-shadow(4px, 4px, 10px, $color-primary-6);
+    line-height: $line-height-base;
+    padding: 0 15px;
+    @include flexbox(space-between, center);
     flex: 1;
 
     .actions {

@@ -33,13 +33,6 @@ function Sidebar({ collapsed, toggle }: IProps) {
   const [openKey, setOpenkey] = useState<string>();
   const [selectedKey, setSelectedKey] = useState<string>(location.pathname);
 
-  useEffect(() => {
-    // reset active menu item
-    if (location.pathname !== selectedKey) {
-      setSelectedKey(location.pathname);
-    }
-  }, [location.pathname]);
-
   const menuList: ItemType[] = useMemo(() => {
     return [
       {
@@ -61,6 +54,13 @@ function Sidebar({ collapsed, toggle }: IProps) {
       },
     ];
   }, [locale]);
+
+  useEffect(() => {
+    // reset active menu item
+    if (location.pathname !== selectedKey) {
+      setSelectedKey(location.pathname);
+    }
+  }, [location.pathname]);
 
   const onChangeOpenKey = useCallback(
     (k: SetStateAction<string | undefined>) => {

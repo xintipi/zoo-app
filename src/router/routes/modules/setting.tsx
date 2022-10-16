@@ -11,40 +11,25 @@ const setting: RouteObject = {
   element: <Default />,
   children: [
     {
-      path: '',
-      element: <Outlet />,
-      children: [
-        {
-          path: 'staff',
-          element: (
-            <WrapperRoute element={<Staff />} title="title:staff" guard="auth" auth />
-          ),
-        },
-
-        {
-          path: 'staff/new',
-          element: (
-            <WrapperRoute
-              element={<StaffNew />}
-              title="title:staff_new"
-              guard="auth"
-              auth
-            />
-          ),
-        },
-
-        {
-          path: 'staff/:id/edit',
-          element: (
-            <WrapperRoute
-              element={<StaffEdit />}
-              title="title:staff_edit"
-              guard="auth"
-              auth
-            />
-          ),
-        },
-      ],
+      path: 'staff',
+      element: <WrapperRoute element={<Staff />} title="title:staff" guard="auth" auth />,
+    },
+    {
+      path: 'staff/new',
+      element: (
+        <WrapperRoute element={<StaffNew />} title="title:staff_new" guard="auth" auth />
+      ),
+    },
+    {
+      path: 'staff/:id/edit',
+      element: (
+        <WrapperRoute
+          element={<StaffEdit />}
+          title="title:staff_edit"
+          guard="auth"
+          auth
+        />
+      ),
     },
   ],
 };
