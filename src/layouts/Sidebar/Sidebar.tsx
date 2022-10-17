@@ -8,7 +8,7 @@ import { Draft } from '@reduxjs/toolkit';
 import { Layout } from 'antd';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
 import clsx from 'clsx';
-import { SetStateAction, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { SetStateAction, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -62,19 +62,13 @@ function Sidebar({ collapsed, toggle }: IProps) {
     }
   }, [location.pathname]);
 
-  const onChangeOpenKey = useCallback(
-    (k: SetStateAction<string | undefined>) => {
-      setOpenkey(k);
-    },
-    [openKey],
-  );
+  const onChangeOpenKey = (k: SetStateAction<string | undefined>) => {
+    setOpenkey(k);
+  };
 
-  const onChangeSelectedKey = useCallback(
-    (k: SetStateAction<string>) => {
-      setSelectedKey(k);
-    },
-    [selectedKey],
-  );
+  const onChangeSelectedKey = (k: SetStateAction<string>) => {
+    setSelectedKey(k);
+  };
 
   return (
     <Sider

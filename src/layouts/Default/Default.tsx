@@ -1,5 +1,5 @@
 import { Layout } from 'antd';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Header from '../Header/Header';
@@ -10,9 +10,9 @@ const { Content } = Layout;
 function Default() {
   const [collapsed, setCollapsed] = useState<boolean>(false);
 
-  const toggle = useCallback(() => {
+  const toggle = () => {
     setCollapsed(!collapsed);
-  }, [collapsed]);
+  };
 
   return (
     <Layout style={{ height: '100%' }}>
