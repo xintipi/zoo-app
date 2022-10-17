@@ -1,5 +1,5 @@
 import { Layout } from 'antd';
-import { ReactElement, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Header from '../Header/Header';

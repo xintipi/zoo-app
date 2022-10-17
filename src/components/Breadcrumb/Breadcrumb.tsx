@@ -1,7 +1,6 @@
 import { Draft } from '@reduxjs/toolkit';
 import { Breadcrumb as BreadcrumbComponent, BreadcrumbProps } from 'antd';
 import { Route } from 'antd/es/breadcrumb/Breadcrumb';
-import { filter } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -33,6 +32,7 @@ function Breadcrumb() {
   }, [locale]);
 
   const breadcrumbNameMap: IRoute = useMemo(() => {
+    console.log('aaa');
     return {
       /* dashboard */
       '/dashboard': [

@@ -5,7 +5,7 @@ import { ConfigProvider, Spin } from 'antd';
 import enUS from 'antd/es/locale/en_US';
 import jaJP from 'antd/es/locale/ja_JP';
 import dayjs from 'dayjs';
-import { Suspense, useEffect, useMemo } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -21,7 +21,7 @@ function App() {
     dayjs.locale(locale);
   }, [locale]);
 
-  const localeConfigProvider = useMemo(() => {
+  const localeConfigProvider = () => {
     if (locale === 'ja') {
       return {
         ...jaJP,
@@ -40,10 +40,10 @@ function App() {
         Empty: { description: 'There is no data to display' },
       };
     }
-  }, [locale]);
+  };
 
   return (
-    <ConfigProvider locale={localeConfigProvider} componentSize="middle">
+    <ConfigProvider locale={localeConfigProvider()} componentSize="middle">
       <HistoryRouter history={history}>
         <Suspense fallback={null}>
           <Spin
