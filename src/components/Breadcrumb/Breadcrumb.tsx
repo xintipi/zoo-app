@@ -73,12 +73,17 @@ function Breadcrumb() {
     setRoutes(filterRoute);
   }, [location.pathname, locale]);
 
-  const itemRender: BreadcrumbProps['itemRender'] = (route, params, routes, paths) => {
+  const itemRender: BreadcrumbProps['itemRender'] = (
+    route: BreadcrumbRoute,
+    params,
+    routes,
+    paths,
+  ) => {
     const last = routes.indexOf(route) === routes.length - 1;
     return last ? (
       <span>{route.breadcrumbName}</span>
     ) : (
-      <Link to={route.path}>{route.breadcrumbName}</Link>
+      <Link to={`${route.path}${route.search}`}>{route.breadcrumbName}</Link>
     );
   };
 
