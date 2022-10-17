@@ -1,7 +1,7 @@
 import { Menu } from 'antd';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
 import clsx from 'clsx';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Menu.module.scss';
@@ -15,7 +15,7 @@ interface IMenuProps {
 }
 
 const MenuComponent: FC<IMenuProps> = (props) => {
-  const { items, openKey, onChangeOpenKey, selectedKey, onChangeSelectedKey } = props;
+  const { items, openKey, selectedKey, onChangeOpenKey, onChangeSelectedKey } = props;
   const navigate = useNavigate();
 
   const onMenuClick = (path: string) => {
@@ -41,4 +41,4 @@ const MenuComponent: FC<IMenuProps> = (props) => {
   );
 };
 
-export default MenuComponent;
+export default memo(MenuComponent);

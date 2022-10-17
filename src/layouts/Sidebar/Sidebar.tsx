@@ -8,7 +8,7 @@ import { Draft } from '@reduxjs/toolkit';
 import { Layout } from 'antd';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
 import clsx from 'clsx';
-import React, { SetStateAction, useEffect, useMemo, useState } from 'react';
+import { SetStateAction, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -33,7 +33,7 @@ function Sidebar({ collapsed, toggle }: IProps) {
   const [openKey, setOpenkey] = useState<string>();
   const [selectedKey, setSelectedKey] = useState<string>(location.pathname);
 
-  const menuList: ItemType[] = useMemo(() => {
+  const items = useMemo((): ItemType[] => {
     return [
       {
         label: t('common:dashboard'),
@@ -93,7 +93,7 @@ function Sidebar({ collapsed, toggle }: IProps) {
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </div>
       <MenuComponent
-        items={menuList}
+        items={items}
         openKey={openKey}
         onChangeOpenKey={onChangeOpenKey}
         selectedKey={selectedKey}
