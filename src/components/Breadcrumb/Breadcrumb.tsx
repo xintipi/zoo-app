@@ -32,7 +32,6 @@ function Breadcrumb() {
   }, [locale]);
 
   const breadcrumbNameMap: IRoute = useMemo(() => {
-    console.log('aaa');
     return {
       /* dashboard */
       '/dashboard': [
