@@ -11,7 +11,6 @@ function Default() {
   const [collapsed, setCollapsed] = useState<boolean>(false);
 
   const toggle = () => {
-    console.log(collapsed);
     setCollapsed(!collapsed);
   };
 
