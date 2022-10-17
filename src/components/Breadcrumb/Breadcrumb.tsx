@@ -80,10 +80,11 @@ function Breadcrumb() {
     paths,
   ) => {
     const last = routes.indexOf(route) === routes.length - 1;
+    const search = route.search ? route.search : '';
     return last ? (
       <span>{route.breadcrumbName}</span>
     ) : (
-      <Link to={`${route.path}${route.search}`}>{route.breadcrumbName}</Link>
+      <Link to={`${route.path}${search}`}>{route.breadcrumbName}</Link>
     );
   };
 
