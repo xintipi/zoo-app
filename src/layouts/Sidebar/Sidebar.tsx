@@ -86,7 +86,7 @@ function Sidebar({ collapsed, toggle }: IProps) {
           'align-items-center',
           { 'justify-content-end': !collapsed },
           { 'justify-content-center': collapsed },
-          { 'px-15': !collapsed },
+          { 'px-15': !collapsed }
         )}
         onClick={toggle}
       >

@@ -9,9 +9,7 @@ const baseUrl = '/auth';
 
 export const Auth = {
   async login(data: ILoginRequest) {
-    return await Post<IResponseType<IToken>>(`${baseUrl}/login`, data).then(
-      (resp) => resp.data,
-    );
+    return await Post<IResponseType<IToken>>(`${baseUrl}/login`, data).then((resp) => resp.data);
   },
 
   async logout() {
@@ -20,7 +18,7 @@ export const Auth = {
 
   async profile(data: any) {
     return await Get<IResponseType<IUserProfile>>(`${baseUrl}/profile`, data).then(
-      (resp) => resp.data,
+      (resp) => resp.data
     );
   },
 };

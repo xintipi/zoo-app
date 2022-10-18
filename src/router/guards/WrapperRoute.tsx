@@ -34,9 +34,7 @@ const WrapperRoute: FC<WrapperRouteProps> = ({ title, auth, guard, ...props }) =
     }
   }, [title, locale]);
 
-  return auth
-    ? component[guard as keyof typeof component]
-    : (props.element as ReactElement);
+  return auth ? component[guard as keyof typeof component] : (props.element as ReactElement);
 };
 
 export default WrapperRoute;

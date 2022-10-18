@@ -25,18 +25,12 @@ function Login() {
       .required(t('validation:messages.required', { field: t('login:email_label') })),
     password: yup
       .string()
-      .min(
-        6,
-        t('validation:messages.min', { field: t('login:password_label'), length: 6 }),
-      )
+      .min(6, t('validation:messages.min', { field: t('login:password_label'), length: 6 }))
       .required(t('validation:messages.required', { field: t('login:password_label') }))
       .regexPassword(t('validation:messages.regex_password')),
   });
 
-  const onSubmit = (
-    values: ILoginRequest,
-    formikHelpers: FormikHelpers<ILoginRequest>,
-  ) => {
+  const onSubmit = (values: ILoginRequest, formikHelpers: FormikHelpers<ILoginRequest>) => {
     if (Object.keys(values).length) {
       // dispatch(onLogIn(true));
     }
@@ -45,9 +39,7 @@ function Login() {
   };
 
   return (
-    <div
-      className={clsx(styles.login, 'd-flex', 'align-items-center', 'position-relative')}
-    >
+    <div className={clsx(styles.login, 'd-flex', 'align-items-center', 'position-relative')}>
       <div className={clsx(styles.containerTight, 'container-tight', 'py-6')}>
         <Formik
           initialValues={initialValues}

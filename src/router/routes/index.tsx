@@ -25,15 +25,11 @@ export const rootRoute: RouteObject = {
     },
     {
       path: 'dashboard',
-      element: (
-        <WrapperRoute element={<Dashboard />} title="title:dashboard" guard="auth" auth />
-      ),
+      element: <WrapperRoute element={<Dashboard />} title="title:dashboard" guard="auth" auth />,
     },
     {
       path: 'profile',
-      element: (
-        <WrapperRoute element={<Profile />} title="title:profile" guard="auth" auth />
-      ),
+      element: <WrapperRoute element={<Profile />} title="title:profile" guard="auth" auth />,
     },
   ],
 };

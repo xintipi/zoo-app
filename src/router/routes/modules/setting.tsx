@@ -16,20 +16,11 @@ const setting: RouteObject = {
     },
     {
       path: 'staff/new',
-      element: (
-        <WrapperRoute element={<StaffNew />} title="title:staff_new" guard="auth" auth />
-      ),
+      element: <WrapperRoute element={<StaffNew />} title="title:staff_new" guard="auth" auth />,
     },
     {
       path: 'staff/:id/edit',
-      element: (
-        <WrapperRoute
-          element={<StaffEdit />}
-          title="title:staff_edit"
-          guard="auth"
-          auth
-        />
-      ),
+      element: <WrapperRoute element={<StaffEdit />} title="title:staff_edit" guard="auth" auth />,
     },
   ],
 };

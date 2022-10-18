@@ -76,7 +76,7 @@ function Breadcrumb() {
     route: BreadcrumbRoute,
     params,
     routes,
-    paths,
+    paths
   ) => {
     const last = routes.indexOf(route) === routes.length - 1;
     const search = route.search ? route.search : '';

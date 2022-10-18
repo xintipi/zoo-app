@@ -65,13 +65,7 @@ function Header() {
           />
 
           <Dropdown
-            overlay={
-              <Menu
-                className={clsx(styles.dropdownMenu)}
-                onClick={onClick}
-                items={menus}
-              />
-            }
+            overlay={<Menu className={clsx(styles.dropdownMenu)} onClick={onClick} items={menus} />}
           >
             <span className={clsx(styles.userAction, 'px-0', 'py-0')}>
               <UserOutlined />

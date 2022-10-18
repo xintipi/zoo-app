@@ -1,10 +1,5 @@
 import { message as $message } from 'antd';
-import axios, {
-  AxiosError,
-  AxiosInstance,
-  AxiosRequestConfig,
-  AxiosResponse,
-} from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import Cookies from 'js-cookie';
 import { includes } from 'lodash';
 
@@ -38,7 +33,7 @@ instance.interceptors.request.use(
     stores.dispatch(setLoadingState(false));
 
     return Promise.reject(error);
-  },
+  }
 );
 
 instance.interceptors.response.use(
@@ -69,7 +64,7 @@ instance.interceptors.response.use(
     $message.error(errorMessage);
 
     return Promise.reject(error);
-  },
+  }
 );
 
 export default instance;
