@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 
 import { useTranslateFormErrors } from '@/hooks';
-import { ITranslateFormInterface } from '@/interface/translate-form.interface';
+import { ITranslateForm } from '@/interface/translate-form.interface';
 
 const WithTranslateFormErrors = ({
   errors,
   touched,
   setFieldTouched,
   children,
-}: ITranslateFormInterface) => {
+}: ITranslateForm) => {
   useTranslateFormErrors({ errors, touched, setFieldTouched });
   return <>{children}</>;
 };

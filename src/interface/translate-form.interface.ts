@@ -1,7 +1,7 @@
 import { FormikErrors, FormikTouched } from 'formik';
 import { ReactElement } from 'react';
 
-export interface ITranslateFormInterface {
+export interface ITranslateForm {
   errors: FormikErrors<any>;
   touched: FormikTouched<any>;
   setFieldTouched: (field: string) => void;
