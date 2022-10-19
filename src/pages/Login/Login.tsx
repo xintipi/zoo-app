@@ -4,7 +4,6 @@ import { FormikHelpers, useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 
 import { ReactComponent as Logo } from '@/assets/logo.svg';
-import DrawerLanguage from '@/components/DrawerLanguage/DrawerLanguage';
 import FormInput from '@/components/Shared/FormInput/FormInput';
 import WithTranslateFormErrors from '@/components/Shared/TranslateForm/WithTranslateFormErrors';
 import { ILoginRequest } from '@/interface/login.interface';
@@ -34,7 +33,6 @@ function Login() {
   return (
     <div className={clsx(styles.login, 'd-flex', 'align-items-center', 'position-relative')}>
       <div className={clsx(styles.containerTight, 'container-tight', 'py-6')}>
-        <DrawerLanguage />
         <WithTranslateFormErrors
           errors={formik.errors}
           touched={formik.touched}
