@@ -1,10 +1,12 @@
-import { Form, Input } from 'antd';
+import { Form } from 'antd';
 import clsx from 'clsx';
 import { ChangeEvent, FocusEventHandler, useState } from 'react';
 
 import styles from './FormInput.module.scss';
+import TextField from './TextField';
+const { Item } = Form;
 
-interface IProps {
+export interface IProps {
   name: string;
   label?: string;
   type?: string;
@@ -17,7 +19,7 @@ interface IProps {
 }
 
 const FormInput = (props: IProps) => {
-  const [value, setValue] = useState<string>(props.value || '');
+  const [value, setValue] = useState<string | ''>(props.value || '');
   const { label, errors, name, touched, type, placeholder, onBlur, onChange } = props;
 
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
@@ -33,31 +35,26 @@ const FormInput = (props: IProps) => {
             {label}
           </label>
         )}
-        <Form.Item
-          validateStatus={errors[name] && touched[name] ? 'error' : ''}
-          help={errors[name] && touched[name] ? errors[name] : ''}
+        <Item
+          validateStatus={Boolean(errors) && touched ? 'error' : ''}
+          help={Boolean(errors) && touched ? errors : ''}
         >
-          {type === 'password' ? (
-            <Input.Password
-              name={name}
-              value={value}
-              placeholder={placeholder}
-              onChange={handleChange}
-              onBlur={onBlur}
-            />
-          ) : (
-            <Input
-              name={name}
-              value={value}
-              placeholder={placeholder}
-              onChange={handleChange}
-              onBlur={onBlur}
-            />
-          )}
-        </Form.Item>
+          <TextField
+            type={type as string}
+            name={name}
+            value={value}
+            placeholder={placeholder}
+            onChange={handleChange}
+            onBlur={onBlur}
+          />
+        </Item>
       </div>
     </div>
   );
+};
+
+FormInput.defaultProps = {
+  type: 'text',
 };
 
 export default FormInput;
