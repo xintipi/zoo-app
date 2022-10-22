@@ -14,8 +14,8 @@
     "build:production": "tsc && vite build",
     "preview": "vite preview",
     "lint:fix": "eslint --fix ./src --ext .jsx,.js,.ts,.tsx",
-    "prettier": "prettier --check --write \"./**/*.{js,jsx,ts,tsx,css,scss,md,json}\"",
-    "format": "npm run prettier && npm run lint:fix",
+    "prettier": "prettier --check --write \"./**/*.{js,jsx,ts,tsx,md,json}\"",
+    "format": "npm run lint:fix && npm run prettier",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "prepare": "husky install"

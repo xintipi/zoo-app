@@ -40,17 +40,18 @@ npm run prettier
 
 ## How to use husky
 
-```bash
-husky install
+Create file <b>.lintstagedrc</b> in root folder:
+```
+{
+  "**/*.{js,jsx,ts,tsx}": ["npm run format"]
+}
 ```
 
-```bash
-npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
-```
+<code>npm set-script prepare "husky install" && npm run prepare</code>
 
-```bash
-npx husky add .husky/pre-commit "npm run pre-commit"
-```
+<code>npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'</code>
+
+<code>npx husky add .husky/pre-commit 'npx lint-staged'</code>
 
 ## How to pull request
 
