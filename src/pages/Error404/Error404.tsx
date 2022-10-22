@@ -7,6 +7,7 @@ function Error404() {
 
   return (
     <Result
+      className="result-page"
       status="404"
       title={t('error:title_404')}
       subTitle={t('error:404')}

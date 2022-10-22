@@ -1,7 +1,6 @@
-.ant-result {
-  @include flexbox(center, center);
-  flex-direction: column;
+.result-page.ant-result {
+  @apply flex-box flex-col;
   .ant-result-image {
-    margin: 0;
+    @apply my-0;
   }
 }

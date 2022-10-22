@@ -1,31 +1,15 @@
-@import '@/styles/shared/variables';
-@import '@/styles/shared/mixins';
-
 .layout-page-header {
-  padding: 0 !important;
-  z-index: 9;
-  height: 56px;
-  background-color: $white;
+  @apply flex px-0 py-0 z-[9] h-[56px] bg-white;
 
   &-main {
-    @include box-shadow(4px, 4px, 10px, $color-primary-6);
-    line-height: $line-height-base;
-    padding: 0 15px;
-    @include flexbox(space-between, center);
-    flex: 1;
+    @apply flex justify-between items-center flex-1 py-0 px-[15px] leading-[var(--line-height-base)] shadow-[4px_4px_10px_rgb(var(--color-white-1))];
 
     .actions {
-      height: 100%;
-      @include flexbox(center, center);
+      @apply flex-box h-full;
 
       .user-action {
-        border: 1px solid $color-primary-6;
-        @include flexbox(center, center);
-        height: 32px;
-        width: 32px;
-        border-radius: 50%;
-        cursor: pointer;
-        margin-left: 20px;
+        @apply flex-box h-[32px] w-[32px] ml-[20px] px-0 py-0 rounded-[50%] cursor-pointer;
+        border: 1px solid rgb(var(--color-white-1));
       }
     }
   }
@@ -33,6 +17,6 @@
 
 .dropdown-menu {
   :global li {
-    padding: 7px 17px;
+    @apply py-[7px] px-[17px];
   }
 }

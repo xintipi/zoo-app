@@ -81,11 +81,8 @@ function Sidebar({ collapsed, toggle }: IProps) {
       <div
         className={clsx(
           styles.sidebarTrigger,
-          'd-flex',
-          'align-items-center',
-          { 'justify-content-end': !collapsed },
-          { 'justify-content-center': collapsed },
-          { 'px-15': !collapsed }
+          { 'justify-end px-[15px]': !collapsed },
+          { 'justify-center': collapsed }
         )}
         onClick={toggle}>
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}

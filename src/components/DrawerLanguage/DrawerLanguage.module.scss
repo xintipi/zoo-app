@@ -1,24 +1,23 @@
-@import '@/styles/shared/variables';
-
 .drawer-language {
-  :global .ant-drawer-wrapper-body {
+  :global {
     .ant-drawer-body {
-      > p {
-        color: $color-primary-3;
+      p {
+        @apply text-13 text-skin-dark-4;
       }
     }
   }
 
   .wrapper {
-    list-style-type: none;
+    @apply list-none pl-0;
 
-    :global li {
-      cursor: pointer;
+    .wrapper-item {
+      @apply cursor-pointer;
       width: fit-content;
+
       &:hover,
       &.active {
-        text-decoration: underline;
-        color: $slider-connect-bg;
+        @apply underline;
+        color: rgb(var(--color-blue-1));
       }
     }
   }

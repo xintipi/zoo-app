@@ -31,16 +31,16 @@ function Login() {
   })
 
   return (
-    <div className={clsx(styles.login, 'd-flex', 'align-items-center', 'position-relative')}>
-      <div className={clsx(styles.containerTight, 'container-tight', 'py-6')}>
+    <div className={clsx(styles.login)}>
+      <div className="container-tight max-w-[524px] py-[6px]">
         <WithTranslateFormErrors
           errors={formik.errors}
           touched={formik.touched}
           setFieldTouched={formik.setFieldTouched}>
           <form onSubmit={formik.handleSubmit} className={clsx(styles.card)}>
-            <div className={clsx(styles.cardBody, 'py-30', 'px-0')}>
-              <div className={clsx(styles.loginLogo, 'mb-30')}>
-                <Logo />
+            <div className={clsx(styles.cardBody)}>
+              <div className="flex-box mb-[30px]">
+                <Logo className="w-[130px] h-[66px]" />
               </div>
 
               <FormInput
@@ -67,7 +67,7 @@ function Login() {
               />
 
               <Button
-                className={clsx(styles.btnAction)}
+                className={styles.btnAction}
                 size="large"
                 key="submit"
                 htmlType="submit"

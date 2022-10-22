@@ -1,7 +1,4 @@
-@import '@/styles/shared/variables';
-
 .layout-page-sider-menu {
+  @apply text-skin-dark-1 opacity-[0.85];
   border-right: none;
-  color: $dark;
-  opacity: 0.85;
 }

@@ -1,43 +1,16 @@
-@import '@/styles/shared/mixins';
-
 .login {
-  width: 100%;
-  min-height: 100vh;
   background-image: url('@/assets/background.svg');
-  @include background-img(center, contain);
-
-  .icon-drawer {
-    @include position(absolute, 15px, 15px);
-  }
-
-  .container-tight {
-    max-width: 524px;
-  }
+  @apply relative w-full flex items-center bg-center bg-no-repeat bg-contain;
 
   .card {
-    border-radius: 10px;
-    @include box-shadow(0, 0, 15px, rgb(0 0 0 / 15%));
+    @apply rounded-[10px] shadow-[0_0_15px_rgba(0,0,0,0.15)];
 
     &-body {
-      max-width: 375px;
-      margin: 0 auto;
-      width: 100%;
+      @apply max-w-[375px] w-full my-0 mx-auto py-[30px] px-0;
 
       .btn-action {
-        display: table;
-        margin: 0 auto;
-        min-width: 150px;
-        max-width: 375px;
-        overflow: hidden;
+        @apply table my-0 mx-auto min-w-[150px] max-w-[375px];
       }
-    }
-  }
-
-  &-logo {
-    @include flexbox(center, center);
-    svg {
-      width: 130px;
-      height: 66px;
     }
   }
 }

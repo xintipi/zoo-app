@@ -27,12 +27,12 @@ function Header() {
     {
       key: 'profile',
       label: t('common:user_profile'),
-      icon: <UserOutlined className="fs-15" />,
+      icon: <UserOutlined className="text-15" />,
     },
     {
       key: 'logout',
       label: t('common:logout'),
-      icon: <LogoutOutlined className="fs-15" />,
+      icon: <LogoutOutlined className="text-15" />,
     },
   ]
 
@@ -53,22 +53,18 @@ function Header() {
   }
 
   return (
-    <HeaderComponent className={clsx(styles.layoutPageHeader, 'd-flex')}>
+    <HeaderComponent className={clsx(styles.layoutPageHeader)}>
       <div className={clsx(styles.layoutPageHeaderMain)}>
         <Breadcrumb />
 
         <div className={clsx(styles.actions)}>
-          <DrawerLanguage
-            className="d-flex"
-            title={t('common:change_language')}
-            placement="bottom"
-          />
+          <DrawerLanguage title={t('common:change_language')} placement="bottom" />
 
           <Dropdown
             overlay={
               <Menu className={clsx(styles.dropdownMenu)} onClick={onClick} items={menus} />
             }>
-            <span className={clsx(styles.userAction, 'px-0', 'py-0')}>
+            <span className={clsx(styles.userAction)}>
               <UserOutlined />
             </span>
           </Dropdown>

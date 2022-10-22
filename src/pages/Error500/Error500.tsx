@@ -7,6 +7,7 @@ function Error500() {
 
   return (
     <Result
+      className="result-page"
       status="500"
       title={t('error:title_500')}
       subTitle={t('error:500')}

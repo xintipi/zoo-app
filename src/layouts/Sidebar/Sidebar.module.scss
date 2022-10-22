@@ -1,19 +1,15 @@
-@import '@/styles/shared/variables';
-
 .layout-page-sider {
-  background-color: $slider-connect-bg;
+  @apply bg-skin-blue-1;
+
   :global li {
-    color: $white;
+    @apply text-skin-white-1;
   }
 
   .sidebar-trigger {
-    background-color: $slider-connect-bg;
-    height: 53px;
+    @apply flex items-center bg-skin-blue-1 h-[53px];
+
     svg {
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-      color: $white;
+      @apply w-[20px] h-[20px] cursor-pointer text-skin-white-1;
     }
   }
 }

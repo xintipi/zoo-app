@@ -1,0 +1,48 @@
+* {
+  @apply mx-0 my-0 px-0 py-0 box-border
+}
+*:before,
+*:after {
+  @apply box-border
+}
+
+html,
+body,
+#root,
+#root > * {
+  @apply h-full
+}
+a {
+  @apply box-border
+}
+img {
+  @apply max-w-full block
+}
+body {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-dark-3);
+}
+input,
+button,
+select,
+textarea {
+  outline: none;
+  font-family: var(--font-family-form);
+  font-size: var(--font-size-base);
+}
+input {
+  line-height: normal;
+}
+button {
+  @apply outline-none
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-dark-2);
+}

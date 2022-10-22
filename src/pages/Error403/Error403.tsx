@@ -7,6 +7,7 @@ function Error403() {
 
   return (
     <Result
+      className="result-page"
       status="403"
       title={t('error:title_403')}
       subTitle={t('error:403')}

@@ -1,23 +1,25 @@
-@charset "UTF-8";
+// Base
+@import 'tailwindcss/base';
+@layer base {
+  @import './base/variables';
+  @import './base/elements';
+}
 
-// variables
-@import './shared/variables';
+// Components
+// These styles can be overridden by Utility classes.
+// These styles will only be included in the compiled CSS if they are actually used in the files specified in the
+// `content` list in tailwind.config.js.
+@import 'tailwindcss/components';
+@layer components {
+  @import './components/container';
+  @import './components/input';
+  @import './components/result';
+  @import './components/spin';
+}
 
-// mixins
-@import './shared/mixins';
-
-// utils
-@import './shared/utils';
-
-// base
-@import './base/global';
-@import './base/reset';
-
-// component
-@import './components/input';
-@import './components/result';
-@import './components/spin';
-
-// layout
-@import './layouts/header';
-@import './layouts/container';
+// Utilities
+// These can override anything come before them.
+@import 'tailwindcss/utilities';
+@layer utilities {
+  @import './utilities/utils';
+}

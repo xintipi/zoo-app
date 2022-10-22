@@ -44,7 +44,7 @@ function DrawerLanguage({ className, title, placement }: IProps) {
     <div className={className}>
       <Tooltip title={title} placement={placement}>
         <LanguageSVG
-          className="fs-20"
+          className="text-20"
           style={{ cursor: 'pointer' }}
           onClick={() => setOpen(true)}
         />
@@ -57,13 +57,15 @@ function DrawerLanguage({ className, title, placement }: IProps) {
         className={clsx(styles.drawerLanguage)}
         open={open}
         onClose={() => setOpen(false)}>
-        <p className="fs-13">{t('common:select_language')}</p>
-        <ul className={clsx(styles.wrapper, 'pl-0')}>
+        <p>{t('common:select_language')}</p>
+        <ul className={clsx(styles.wrapper)}>
           {locales.map((lang: ILocales) => (
             <li
               role="presentation"
               key={lang.locale}
-              className={clsx('px-5', 'py-5', { active: locale === lang.locale })}
+              className={clsx(styles.wrapperItem, 'px-[5px]', 'py-[5px]', {
+                [styles.active]: locale === lang.locale,
+              })}
               onClick={() => onChangeLocales(lang.locale)}>
               {lang.value}
             </li>
