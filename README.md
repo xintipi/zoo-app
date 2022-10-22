@@ -1,44 +1,41 @@
-## Install and use
+## ✨ Features
 
-- Installation dependencies
+- 💡 **TypeScript**: A language for application-scale JavaScript
+- 💎 **Hooks**: Use React hooks API instead of traditional class API
+- ✅ **Formik + Yup**: Using <b>Formik</b> to helps you with building forms and combine with <b>Yup</b> that is a JavaScript schema builder for value parsing and validation
+- 🚀 **State-of-The-Art Development**: Newest development stack of <b>React/Hooks/Redux/Antd/Typescript</b>
+- 🌐 **Multiple Language**: Built-in i18n solution
+- ⚙️ **Best Practices**: Solid workflow to make your code healthy
 
-```bash
-npm install
-```
-
-- Run
-
-```bash
-npm run dev
-```
-
-- Build
+## 📦 Install
 
 ```bash
-npm run build:development
+# npm
+$ npm install
+$ npm run dev
+
+# yarn
+$ yarn install
+$ yarn dev
 ```
+
+## 🔨 Build
 
 ```bash
-npm run build:staging
+# npm
+$ npm install
+$ npm run build:development
+$ npm run build:staging
+$ npm run build:production
+
+# yarn
+$ yarn install
+$ yarn build:development
+$ yarn build:staging
+$ yarn build:production
 ```
 
-```bash
-npm run build:production
-```
-
-- Check eslint
-
-```bash
-npm run lint:fix
-```
-
-- Format code
-
-```bash
-npm run prettier
-```
-
-## How to use husky
+## 📱 Use husky
 
 Create file <b>.lintstagedrc</b> in root folder:
 ```
@@ -47,39 +44,11 @@ Create file <b>.lintstagedrc</b> in root folder:
 }
 ```
 
-<code>npm set-script prepare "husky install" && npm run prepare</code>
-
-<code>npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'</code>
-
-<code>npx husky add .husky/pre-commit 'npx lint-staged'</code>
-
-## How to pull request
-
-1. Fork code!
-2. Create your own branch: `git checkout -b feature/xxxx`
-3. Submit your changes: `git commit -m 'type: subject'`
-4. Push your branch: `git push origin feature/xxxx`
-5. submit`pull request`
-
-## Git Contribution submission specification
-
-- Reference [React](https://github.com/reactjs/react/blob/dev/.github/COMMIT_CONVENTION.md) specification ([Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular))
-
-  - `feat` Add new features
-  - `fix` Fix the problem/BUG
-  - `style` The code style is related and does not affect the running result
-  - `perf` Optimization/performance improvement
-  - `refactor` Refactor
-  - `revert` Undo edit
-  - `test` Test related
-  - `docs` Documentation/notes
-  - `chore` Dependency update/scaffolding configuration modification etc.
-  - `workflow` Workflow improvements
-  - `ci` Continuous integration
-  - `types` Type definition file changes
-  - `wip` In development
-
-- Example: `git commit -m "chore: lint commit message"`
+```bash
+$ npm set-script prepare "husky install" && npm run prepare
+$ npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
+$ npx husky add .husky/pre-commit 'npx lint-staged'
+```
 
 ## License
 
