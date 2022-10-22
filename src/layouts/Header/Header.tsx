@@ -3,25 +3,25 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   UserOutlined,
-} from '@ant-design/icons';
-import { Dropdown, Layout, Menu, MenuProps } from 'antd';
-import { ItemType } from 'antd/es/menu/hooks/useItems';
-import clsx from 'clsx';
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+} from '@ant-design/icons'
+import { Dropdown, Layout, Menu, MenuProps } from 'antd'
+import { ItemType } from 'antd/es/menu/hooks/useItems'
+import clsx from 'clsx'
+import { memo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Link, useNavigate } from 'react-router-dom'
 
-import Logo from '@/assets/logo.svg';
-import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
-import DrawerLanguage from '@/components/DrawerLanguage/DrawerLanguage';
+import Logo from '@/assets/logo.svg'
+import Breadcrumb from '@/components/Breadcrumb/Breadcrumb'
+import DrawerLanguage from '@/components/DrawerLanguage/DrawerLanguage'
 
-import styles from './Header.module.scss';
+import styles from './Header.module.scss'
 
-const { Header: HeaderComponent } = Layout;
+const { Header: HeaderComponent } = Layout
 
 function Header() {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
+  const navigate = useNavigate()
+  const { t } = useTranslation()
 
   const menus: ItemType[] = [
     {
@@ -34,23 +34,23 @@ function Header() {
       label: t('common:logout'),
       icon: <LogoutOutlined className="fs-15" />,
     },
-  ];
+  ]
 
   const onClick: MenuProps['onClick'] = (event) => {
     if (event.key === 'profile') {
-      onHandleProfile();
+      onHandleProfile()
     } else if (event.key === 'logout') {
-      onHandleLogout();
+      onHandleLogout()
     }
-  };
+  }
 
   const onHandleProfile = () => {
-    navigate('/profile');
-  };
+    navigate('/profile')
+  }
 
   const onHandleLogout = () => {
-    navigate('/login');
-  };
+    navigate('/login')
+  }
 
   return (
     <HeaderComponent className={clsx(styles.layoutPageHeader, 'd-flex')}>
@@ -65,8 +65,9 @@ function Header() {
           />
 
           <Dropdown
-            overlay={<Menu className={clsx(styles.dropdownMenu)} onClick={onClick} items={menus} />}
-          >
+            overlay={
+              <Menu className={clsx(styles.dropdownMenu)} onClick={onClick} items={menus} />
+            }>
             <span className={clsx(styles.userAction, 'px-0', 'py-0')}>
               <UserOutlined />
             </span>
@@ -74,7 +75,7 @@ function Header() {
         </div>
       </div>
     </HeaderComponent>
-  );
+  )
 }
 
-export default memo(Header);
+export default memo(Header)

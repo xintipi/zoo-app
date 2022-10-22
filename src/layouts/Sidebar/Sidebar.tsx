@@ -3,35 +3,35 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   SettingOutlined,
-} from '@ant-design/icons';
-import { Draft } from '@reduxjs/toolkit';
-import { Layout } from 'antd';
-import { ItemType } from 'antd/es/menu/hooks/useItems';
-import clsx from 'clsx';
-import { SetStateAction, useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+} from '@ant-design/icons'
+import { Draft } from '@reduxjs/toolkit'
+import { Layout } from 'antd'
+import { ItemType } from 'antd/es/menu/hooks/useItems'
+import clsx from 'clsx'
+import { SetStateAction, useEffect, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 
-import { State } from '@/stores';
+import { State } from '@/stores'
 
-import MenuComponent from './Menu';
-import styles from './Sidebar.module.scss';
+import MenuComponent from './Menu'
+import styles from './Sidebar.module.scss'
 
-const { Sider } = Layout;
+const { Sider } = Layout
 
 interface IProps {
-  collapsed: boolean;
-  toggle: () => void;
+  collapsed: boolean
+  toggle: () => void
 }
 
 function Sidebar({ collapsed, toggle }: IProps) {
-  const location = useLocation();
-  const { t } = useTranslation();
-  const { locale } = useSelector((state: Draft<State>) => state.global);
+  const location = useLocation()
+  const { t } = useTranslation()
+  const { locale } = useSelector((state: Draft<State>) => state.global)
 
-  const [openKey, setOpenkey] = useState<string>();
-  const [selectedKey, setSelectedKey] = useState<string>(location.pathname);
+  const [openKey, setOpenkey] = useState<string>()
+  const [selectedKey, setSelectedKey] = useState<string>(location.pathname)
 
   const items = useMemo((): ItemType[] => {
     return [
@@ -52,23 +52,23 @@ function Sidebar({ collapsed, toggle }: IProps) {
           },
         ],
       },
-    ];
-  }, [locale]);
+    ]
+  }, [locale])
 
   useEffect(() => {
     // reset active menu item
     if (location.pathname !== selectedKey) {
-      setSelectedKey(location.pathname);
+      setSelectedKey(location.pathname)
     }
-  }, [location.pathname]);
+  }, [location.pathname])
 
   const onChangeOpenKey = (k: SetStateAction<string | undefined>) => {
-    setOpenkey(k);
-  };
+    setOpenkey(k)
+  }
 
   const onChangeSelectedKey = (k: SetStateAction<string>) => {
-    setSelectedKey(k);
-  };
+    setSelectedKey(k)
+  }
 
   return (
     <Sider
@@ -77,8 +77,7 @@ function Sidebar({ collapsed, toggle }: IProps) {
       collapsible
       collapsedWidth={80}
       collapsed={collapsed}
-      breakpoint="md"
-    >
+      breakpoint="md">
       <div
         className={clsx(
           styles.sidebarTrigger,
@@ -88,8 +87,7 @@ function Sidebar({ collapsed, toggle }: IProps) {
           { 'justify-content-center': collapsed },
           { 'px-15': !collapsed }
         )}
-        onClick={toggle}
-      >
+        onClick={toggle}>
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </div>
       <MenuComponent
@@ -100,7 +98,7 @@ function Sidebar({ collapsed, toggle }: IProps) {
         onChangeSelectedKey={onChangeSelectedKey}
       />
     </Sider>
-  );
+  )
 }
 
-export default Sidebar;
+export default Sidebar

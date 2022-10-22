@@ -1,32 +1,32 @@
-import { Menu } from 'antd';
-import { ItemType } from 'antd/es/menu/hooks/useItems';
-import clsx from 'clsx';
-import { FC, memo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Menu } from 'antd'
+import { ItemType } from 'antd/es/menu/hooks/useItems'
+import clsx from 'clsx'
+import { FC, memo } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import styles from './Menu.module.scss';
+import styles from './Menu.module.scss'
 
 interface IMenuProps {
-  items: ItemType[];
-  openKey?: string;
-  onChangeOpenKey: (key?: string) => void;
-  selectedKey: string;
-  onChangeSelectedKey: (key: string) => void;
+  items: ItemType[]
+  openKey?: string
+  onChangeOpenKey: (key?: string) => void
+  selectedKey: string
+  onChangeSelectedKey: (key: string) => void
 }
 
 const MenuComponent: FC<IMenuProps> = (props) => {
-  const { items, openKey, selectedKey, onChangeOpenKey, onChangeSelectedKey } = props;
-  const navigate = useNavigate();
+  const { items, openKey, selectedKey, onChangeOpenKey, onChangeSelectedKey } = props
+  const navigate = useNavigate()
 
   const onMenuClick = (path: string) => {
-    onChangeSelectedKey(path);
-    navigate(path);
-  };
+    onChangeSelectedKey(path)
+    navigate(path)
+  }
 
   const onOpenChange = (keys: string[]) => {
-    const key = keys.pop();
-    onChangeOpenKey(key);
-  };
+    const key = keys.pop()
+    onChangeOpenKey(key)
+  }
 
   return (
     <Menu
@@ -38,7 +38,7 @@ const MenuComponent: FC<IMenuProps> = (props) => {
       className={clsx(styles.layoutPageSiderMenu)}
       items={items}
     />
-  );
-};
+  )
+}
 
-export default memo(MenuComponent);
+export default memo(MenuComponent)

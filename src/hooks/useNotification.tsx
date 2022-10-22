@@ -1,14 +1,14 @@
-import { notification } from 'antd';
-import { IconType } from 'antd/es/notification';
-import { ArgsProps } from 'antd/lib/notification';
+import { notification } from 'antd'
+import { IconType } from 'antd/es/notification'
+import { ArgsProps } from 'antd/lib/notification'
 
 interface Notification {
-  type: IconType;
-  message?: ArgsProps['message'];
-  description?: ArgsProps['description'];
-  placement?: ArgsProps['placement'];
-  duration?: ArgsProps['duration'];
-  maxCount?: ArgsProps['maxCount'];
+  type: IconType
+  message?: ArgsProps['message']
+  description?: ArgsProps['description']
+  placement?: ArgsProps['placement']
+  duration?: ArgsProps['duration']
+  maxCount?: ArgsProps['maxCount']
 }
 
 function UseNotification() {
@@ -26,10 +26,10 @@ function UseNotification() {
       placement,
       duration,
       maxCount,
-    });
-  };
+    })
+  }
 
-  return { openNotification };
+  return { openNotification }
 }
 
-export default UseNotification;
+export default UseNotification

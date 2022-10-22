@@ -3,4 +3,4 @@ const enum LocalesEnum {
   ja_JP = 'ja',
 }
 
-export default LocalesEnum;
+export default LocalesEnum

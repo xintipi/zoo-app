@@ -1,6 +1,6 @@
 module.exports = {
   arrowParens: 'always',
-  bracketSameLine: false,
+  bracketSameLine: true,
   bracketSpacing: true,
   embeddedLanguageFormatting: 'auto',
   htmlWhitespaceSensitivity: 'css',
@@ -10,10 +10,10 @@ module.exports = {
   proseWrap: 'preserve',
   quoteProps: 'as-needed',
   requirePragma: false,
-  semi: true,
+  semi: false,
   singleQuote: true,
   tabWidth: 2,
   trailingComma: 'es5',
   useTabs: false,
   vueIndentScriptAndStyle: false,
-};
+}

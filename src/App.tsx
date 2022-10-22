@@ -1,25 +1,25 @@
-import 'dayjs/locale/ja';
+import 'dayjs/locale/ja'
 
-import { Draft } from '@reduxjs/toolkit';
-import { ConfigProvider, Spin } from 'antd';
-import enUS from 'antd/es/locale/en_US';
-import jaJP from 'antd/es/locale/ja_JP';
-import dayjs from 'dayjs';
-import { Suspense, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { Draft } from '@reduxjs/toolkit'
+import { ConfigProvider, Spin } from 'antd'
+import enUS from 'antd/es/locale/en_US'
+import jaJP from 'antd/es/locale/ja_JP'
+import dayjs from 'dayjs'
+import { Suspense, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 
-import { history, HistoryRouter } from '@/router/history';
-import RenderRouter from '@/router/routes';
-import { State } from '@/stores';
+import { history, HistoryRouter } from '@/router/history'
+import RenderRouter from '@/router/routes'
+import { State } from '@/stores'
 
 function App() {
-  const { t } = useTranslation();
-  const { locale, loading } = useSelector((state: Draft<State>) => state.global);
+  const { t } = useTranslation()
+  const { locale, loading } = useSelector((state: Draft<State>) => state.global)
 
   useEffect(() => {
-    dayjs.locale(locale);
-  }, [locale]);
+    dayjs.locale(locale)
+  }, [locale])
 
   const localeConfigProvider = () => {
     if (locale === 'ja') {
@@ -33,14 +33,14 @@ function App() {
           },
         },
         Empty: { description: '表示するデータがありません' },
-      };
+      }
     } else if (locale === 'en') {
       return {
         ...enUS,
         Empty: { description: 'There is no data to display' },
-      };
+      }
     }
-  };
+  }
 
   return (
     <ConfigProvider locale={localeConfigProvider()} componentSize="middle">
@@ -51,7 +51,7 @@ function App() {
         </Suspense>
       </HistoryRouter>
     </ConfigProvider>
-  );
+  )
 }
 
-export default App;
+export default App

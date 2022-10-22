@@ -1,21 +1,21 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
-import react from '@vitejs/plugin-react';
-import dayjs from 'dayjs';
-import * as path from 'path';
-import { defineConfig } from 'vite';
-import vitePluginImp from 'vite-plugin-imp';
-import svgrPlugin from 'vite-plugin-svgr';
+import react from '@vitejs/plugin-react'
+import dayjs from 'dayjs'
+import * as path from 'path'
+import { defineConfig } from 'vite'
+import vitePluginImp from 'vite-plugin-imp'
+import svgrPlugin from 'vite-plugin-svgr'
 
 // @ts-ignore
-import pkg from './package.json';
+import pkg from './package.json'
 
-const { dependencies, devDependencies, name, version, author } = pkg;
+const { dependencies, devDependencies, name, version, author } = pkg
 const __APP_INFO__ = {
   pkg: { dependencies, devDependencies, name, version, author },
   lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
-};
+}
 const vendorLibs: { match: string[]; output: string }[] = [
   {
     match: ['antd'],
@@ -33,16 +33,16 @@ const vendorLibs: { match: string[]; output: string }[] = [
     match: ['i18next'],
     output: 'i18next',
   },
-];
+]
 const configManualChunk = (id: string) => {
   if (/[\\/]node_modules[\\/]/.test(id)) {
     const matchItem = vendorLibs.find((item) => {
-      const reg = new RegExp(`[\\/]node_modules[\\/]_?(${item.match.join('|')})(.*)`, 'ig');
-      return reg.test(id);
-    });
-    return matchItem ? matchItem.output : null;
+      const reg = new RegExp(`[\\/]node_modules[\\/]_?(${item.match.join('|')})(.*)`, 'ig')
+      return reg.test(id)
+    })
+    return matchItem ? matchItem.output : null
   }
-};
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -127,4 +127,4 @@ export default defineConfig({
     setupFiles: './src/__test__/setup.test.ts',
     css: true,
   },
-});
+})

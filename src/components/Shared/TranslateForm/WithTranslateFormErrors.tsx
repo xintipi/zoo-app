@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-import { useTranslateFormErrors } from '@/hooks';
-import { ITranslateForm } from '@/interface/translate-form.interface';
+import { useTranslateFormErrors } from '@/hooks'
+import { ITranslateForm } from '@/interface/translate-form.interface'
 
 const WithTranslateFormErrors = ({
   errors,
@@ -9,12 +9,12 @@ const WithTranslateFormErrors = ({
   setFieldTouched,
   children,
 }: ITranslateForm) => {
-  useTranslateFormErrors({ errors, touched, setFieldTouched });
-  return <>{children}</>;
-};
+  useTranslateFormErrors({ errors, touched, setFieldTouched })
+  return <>{children}</>
+}
 
 WithTranslateFormErrors.propTypes = {
   form: PropTypes.object,
-};
+}
 
-export default WithTranslateFormErrors;
+export default WithTranslateFormErrors

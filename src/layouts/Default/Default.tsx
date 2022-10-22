@@ -1,18 +1,18 @@
-import { Layout } from 'antd';
-import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Layout } from 'antd'
+import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
 
-import Header from '../Header/Header';
-import Sidebar from '../Sidebar/Sidebar';
+import Header from '../Header/Header'
+import Sidebar from '../Sidebar/Sidebar'
 
-const { Content } = Layout;
+const { Content } = Layout
 
 function Default() {
-  const [collapsed, setCollapsed] = useState<boolean>(false);
+  const [collapsed, setCollapsed] = useState<boolean>(false)
 
   const toggle = () => {
-    setCollapsed(!collapsed);
-  };
+    setCollapsed(!collapsed)
+  }
 
   return (
     <Layout style={{ height: '100%' }}>
@@ -28,14 +28,13 @@ function Default() {
               padding: 24,
               margin: 0,
               minHeight: 280,
-            }}
-          >
+            }}>
             <Outlet />
           </Content>
         </Layout>
       </Layout>
     </Layout>
-  );
+  )
 }
 
-export default Default;
+export default Default

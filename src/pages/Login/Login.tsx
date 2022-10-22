@@ -1,19 +1,19 @@
-import { Button } from 'antd';
-import clsx from 'clsx';
-import { FormikHelpers, useFormik } from 'formik';
-import { useTranslation } from 'react-i18next';
+import { Button } from 'antd'
+import clsx from 'clsx'
+import { FormikHelpers, useFormik } from 'formik'
+import { useTranslation } from 'react-i18next'
 
-import { ReactComponent as Logo } from '@/assets/logo.svg';
-import FormInput from '@/components/Shared/FormInput/FormInput';
-import WithTranslateFormErrors from '@/components/Shared/TranslateForm/WithTranslateFormErrors';
-import { ILoginRequest } from '@/interface/login.interface';
-import loginForm from '@/schemas/login.form';
+import { ReactComponent as Logo } from '@/assets/logo.svg'
+import FormInput from '@/components/Shared/FormInput/FormInput'
+import WithTranslateFormErrors from '@/components/Shared/TranslateForm/WithTranslateFormErrors'
+import { ILoginRequest } from '@/interface/login.interface'
+import loginForm from '@/schemas/login.form'
 
-import styles from './Login.module.scss';
+import styles from './Login.module.scss'
 
 function Login() {
-  const { t } = useTranslation();
-  const { loginInitialValues, loginSchema } = loginForm();
+  const { t } = useTranslation()
+  const { loginInitialValues, loginSchema } = loginForm()
 
   const formik = useFormik({
     initialValues: loginInitialValues,
@@ -24,11 +24,11 @@ function Login() {
         // console.log(email, password);
         // console.log(formikHelpers, 'form helper');
       } catch (err) {
-        formikHelpers.setErrors({ email: 'Email khong ton tai' });
+        formikHelpers.setErrors({ email: 'Email khong ton tai' })
       }
-      formikHelpers.setSubmitting(false);
+      formikHelpers.setSubmitting(false)
     },
-  });
+  })
 
   return (
     <div className={clsx(styles.login, 'd-flex', 'align-items-center', 'position-relative')}>
@@ -36,8 +36,7 @@ function Login() {
         <WithTranslateFormErrors
           errors={formik.errors}
           touched={formik.touched}
-          setFieldTouched={formik.setFieldTouched}
-        >
+          setFieldTouched={formik.setFieldTouched}>
           <form onSubmit={formik.handleSubmit} className={clsx(styles.card)}>
             <div className={clsx(styles.cardBody, 'py-30', 'px-0')}>
               <div className={clsx(styles.loginLogo, 'mb-30')}>
@@ -73,8 +72,7 @@ function Login() {
                 key="submit"
                 htmlType="submit"
                 type="primary"
-                disabled={!formik.dirty || formik.isSubmitting}
-              >
+                disabled={!formik.dirty || formik.isSubmitting}>
                 {t('login:submit_login')}
               </Button>
             </div>
@@ -82,7 +80,7 @@ function Login() {
         </WithTranslateFormErrors>
       </div>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Login

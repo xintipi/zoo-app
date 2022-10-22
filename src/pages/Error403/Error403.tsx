@@ -1,9 +1,9 @@
-import { Button, Result } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Button, Result } from 'antd'
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 function Error403() {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <Result
@@ -18,7 +18,7 @@ function Error403() {
         </Link>
       }
     />
-  );
+  )
 }
 
-export default Error403;
+export default Error403

@@ -1,9 +1,9 @@
-import { Button, Result } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Button, Result } from 'antd'
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 function Error404() {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <Result
@@ -18,7 +18,7 @@ function Error404() {
         </Link>
       }
     />
-  );
+  )
 }
 
-export default Error404;
+export default Error404

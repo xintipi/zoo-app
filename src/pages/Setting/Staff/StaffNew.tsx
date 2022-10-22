@@ -1,5 +1,5 @@
 function StaffNew() {
-  return <div>Create staff</div>;
+  return <div>Create staff</div>
 }
 
-export default StaffNew;
+export default StaffNew

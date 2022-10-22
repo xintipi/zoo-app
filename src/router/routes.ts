@@ -1,12 +1,12 @@
-import { FC } from 'react';
-import { RouteObject, useRoutes } from 'react-router-dom';
+import { FC } from 'react'
+import { RouteObject, useRoutes } from 'react-router-dom'
 
-import { routeLists } from './routes/index';
+import { routeLists } from './routes/index'
 
-const routeList: RouteObject[] = [...routeLists];
+const routeList: RouteObject[] = [...routeLists]
 
 const RenderRouter: FC = () => {
-  return useRoutes(routeList);
-};
+  return useRoutes(routeList)
+}
 
-export default RenderRouter;
+export default RenderRouter

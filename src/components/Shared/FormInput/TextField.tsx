@@ -1,11 +1,11 @@
-import { Input } from 'antd';
+import { Input } from 'antd'
 
-import { IProps } from './FormInput';
+import { IProps } from './FormInput'
 
-const { Password } = Input;
+const { Password } = Input
 
 function TextField({ type, ...props }: IProps) {
-  return type === 'password' ? <Password {...props} /> : <Input {...props} />;
+  return type === 'password' ? <Password {...props} /> : <Input {...props} />
 }
 
-export default TextField;
+export default TextField
