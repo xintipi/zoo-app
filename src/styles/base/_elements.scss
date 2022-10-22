@@ -19,16 +19,16 @@ img {
   @apply max-w-full block
 }
 body {
+  @apply text-skin-dark-3;
   font-family: var(--font-family-heading);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
-  color: var(--color-dark-3);
 }
 input,
 button,
 select,
 textarea {
-  outline: none;
+  @apply outline-none;
   font-family: var(--font-family-form);
   font-size: var(--font-size-base);
 }
@@ -44,5 +44,5 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--color-dark-2);
+  @apply text-skin-dark-2;
 }
