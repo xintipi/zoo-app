@@ -2,9 +2,10 @@
 
 - 💡 **TypeScript**: A language for application-scale JavaScript
 - 💎 **Hooks**: Use React hooks API instead of traditional class API
-- ✅ **Formik + Yup**: Using <b>Formik</b> to helps you with building forms and combine with <b>Yup</b> that is a JavaScript schema builder for value parsing and validation
+- 👨🏽‍💻 **Formik + Yup**: Using <b>Formik</b> to helps you with building forms and combine with <b>Yup</b> that is a JavaScript schema builder for value parsing and validation
 - 🚀 **State-of-The-Art Development**: Newest development stack of <b>React/Hooks/Redux/Antd/Typescript</b>
 - 🌐 **Multiple Language**: Built-in i18n solution
+- 🧩 **Tailwind CSS**: Rapidly build modern websites without ever leaving your HTML
 - ⚙️ **Best Practices**: Solid workflow to make your code healthy
 
 ## 📦 Install
