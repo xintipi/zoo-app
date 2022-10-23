@@ -16,33 +16,6 @@ const __APP_INFO__ = {
   pkg: { dependencies, devDependencies, name, version, author },
   lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
 }
-const vendorLibs: { match: string[]; output: string }[] = [
-  {
-    match: ['antd'],
-    output: 'antd',
-  },
-  {
-    match: ['lodash'],
-    output: 'lodash',
-  },
-  {
-    match: ['formik'],
-    output: 'formik',
-  },
-  {
-    match: ['i18next'],
-    output: 'i18next',
-  },
-]
-const configManualChunk = (id: string) => {
-  if (/[\\/]node_modules[\\/]/.test(id)) {
-    const matchItem = vendorLibs.find((item) => {
-      const reg = new RegExp(`[\\/]node_modules[\\/]_?(${item.match.join('|')})(.*)`, 'ig')
-      return reg.test(id)
-    })
-    return matchItem ? matchItem.output : null
-  }
-}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -67,11 +40,6 @@ export default defineConfig({
     cssTarget: 'chrome80',
     outDir: 'dist',
     chunkSizeWarningLimit: 1000,
-    rollupOptions: {
-      output: {
-        manualChunks: configManualChunk,
-      },
-    },
   },
   define: { __APP_INFO__: JSON.stringify(__APP_INFO__) },
   css: {
@@ -117,9 +85,6 @@ export default defineConfig({
       },
     }),
   ],
-  optimizeDeps: {
-    include: ['@ant-design/icons', 'axios', 'formik', 'lodash'],
-  },
   test: {
     include: ['src/**/*.{test,spec}.{jsx,tsx}'],
     globals: true,
