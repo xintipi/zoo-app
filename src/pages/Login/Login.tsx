@@ -52,6 +52,7 @@ function Login() {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values?.email}
+                required
               />
 
               <FormInput
@@ -64,6 +65,7 @@ function Login() {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values?.password}
+                required
               />
 
               <Button

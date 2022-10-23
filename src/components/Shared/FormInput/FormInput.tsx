@@ -2,12 +2,14 @@ import { Form } from 'antd'
 import clsx from 'clsx'
 import { ChangeEvent, FocusEventHandler, useState } from 'react'
 
+import styles from './FormInput.module.scss'
 import TextField from './TextField'
 
 const { Item } = Form
 
 export interface IProps {
   className?: string
+  required?: boolean
   name: string
   label?: string
   type?: string
@@ -21,7 +23,7 @@ export interface IProps {
 
 const FormInput = (props: IProps) => {
   const [value, setValue] = useState<string | ''>(props.value || '')
-  const { label, errors, name, touched, type, placeholder, onBlur, onChange } = props
+  const { label, required, errors, name, touched, type, placeholder, onBlur, onChange } = props
 
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setValue(evt.target.value)
@@ -29,19 +31,10 @@ const FormInput = (props: IProps) => {
   }
 
   return (
-    <div className="max-w-sm">
+    <div className={clsx(styles.formGroup)}>
       <div>
         {label && (
-          <label
-            className={clsx(
-              'block',
-              'mb-1',
-              'text-skin-dark-1',
-              'text-opacity-[0.85]',
-              label && "after:content-['*'] after:ml-[0.25rem] after:text-skin-red"
-            )}>
-            {label}
-          </label>
+          <label className={clsx(styles.formLabel, { [styles.required]: required })}>{label}</label>
         )}
         <Item
           className="field-item"

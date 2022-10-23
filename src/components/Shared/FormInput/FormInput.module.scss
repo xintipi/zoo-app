@@ -1,0 +1,9 @@
+.form-group {
+  @apply max-w-sm;
+  .form-label {
+    @apply block mb-1 text-skin-dark-1 text-opacity-[0.85];
+    &.required:after {
+      @apply content-['*'] ml-[0.25rem] text-skin-red;
+    }
+  }
+}
