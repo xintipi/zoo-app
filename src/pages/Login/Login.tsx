@@ -75,7 +75,7 @@ function Login() {
                 htmlType="submit"
                 type="primary"
                 disabled={!formik.dirty || formik.isSubmitting}>
-                {t('login:submit_login')}
+                {t<string>('login:submit_login')}
               </Button>
             </div>
           </form>

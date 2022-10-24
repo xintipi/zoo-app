@@ -36,18 +36,18 @@ function Sidebar({ collapsed, toggle }: IProps) {
   const items = useMemo((): ItemType[] => {
     return [
       {
-        label: t('common:dashboard'),
+        label: t<string>('common:dashboard'),
         icon: <HomeOutlined />,
         key: '/dashboard',
       },
 
       {
-        label: t('common:setting'),
+        label: t<string>('common:setting'),
         icon: <SettingOutlined />,
         key: '/setting',
         children: [
           {
-            label: t('common:staff_registration'),
+            label: t<string>('common:staff_registration'),
             key: '/setting/staff',
           },
         ],

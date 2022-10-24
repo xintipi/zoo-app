@@ -9,12 +9,12 @@ function Error500() {
     <Result
       className="result-page"
       status="500"
-      title={t('error:title_500')}
-      subTitle={t('error:500')}
+      title={t<string>('error:title_500')}
+      subTitle={t<string>('error:500')}
       extra={
         <Link to="/dashboard">
           <Button type="primary" size="large">
-            {t('error:back_dashboard')}
+            {t<string>('error:back_dashboard')}
           </Button>
         </Link>
       }

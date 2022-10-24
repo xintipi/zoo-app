@@ -26,12 +26,12 @@ function Header() {
   const menus: ItemType[] = [
     {
       key: 'profile',
-      label: t('common:user_profile'),
+      label: t<string>('common:user_profile'),
       icon: <UserOutlined className="text-15" />,
     },
     {
       key: 'logout',
-      label: t('common:logout'),
+      label: t<string>('common:logout'),
       icon: <LogoutOutlined className="text-15" />,
     },
   ]
@@ -58,7 +58,7 @@ function Header() {
         <Breadcrumb />
 
         <div className={clsx(styles.actions)}>
-          <DrawerLanguage title={t('common:change_language')} placement="bottom" />
+          <DrawerLanguage title={t<string>('common:change_language')} placement="bottom" />
 
           <Dropdown
             overlay={

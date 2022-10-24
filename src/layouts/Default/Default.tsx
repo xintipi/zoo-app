@@ -15,20 +15,14 @@ function Default() {
   }
 
   return (
-    <Layout style={{ height: '100%' }}>
+    <Layout className="site-layout">
       <Sidebar collapsed={collapsed} toggle={toggle} />
 
       <Layout>
         <Header />
 
-        <Layout style={{ padding: '0 24px 24px' }}>
-          <Content
-            className="site-layout-background"
-            style={{
-              padding: 24,
-              margin: 0,
-              minHeight: 280,
-            }}>
+        <Layout className="site-layout">
+          <Content className="site-layout-background">
             <Outlet />
           </Content>
         </Layout>

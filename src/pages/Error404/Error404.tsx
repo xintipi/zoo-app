@@ -9,12 +9,12 @@ function Error404() {
     <Result
       className="result-page"
       status="404"
-      title={t('error:title_404')}
-      subTitle={t('error:404')}
+      title={t<string>('error:title_404')}
+      subTitle={t<string>('error:404')}
       extra={
         <Link to="/dashboard">
           <Button type="primary" size="large">
-            {t('error:back_dashboard')}
+            {t<string>('error:back_dashboard')}
           </Button>
         </Link>
       }

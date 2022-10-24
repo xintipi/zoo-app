@@ -51,13 +51,13 @@ function DrawerLanguage({ className, title, placement }: IProps) {
       </Tooltip>
 
       <Drawer
-        title={t('common:language')}
+        title={t<string>('common:language')}
         width={300}
         placement="right"
         className={clsx(styles.drawerLanguage)}
         open={open}
         onClose={() => setOpen(false)}>
-        <p>{t('common:select_language')}</p>
+        <p>{t<string>('common:select_language')}</p>
         <ul className={clsx(styles.wrapper)}>
           {locales.map((lang: ILocales) => (
             <li

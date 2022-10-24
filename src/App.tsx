@@ -46,7 +46,7 @@ function App() {
     <ConfigProvider locale={localeConfigProvider()} componentSize="middle">
       <HistoryRouter history={history}>
         <Suspense fallback={null}>
-          <Spin spinning={loading} className="app-loading-wrapper" tip={t('common:tip')} />
+          <Spin spinning={loading} className="app-loading-wrapper" tip={t<string>('common:tip')} />
           <RenderRouter />
         </Suspense>
       </HistoryRouter>
