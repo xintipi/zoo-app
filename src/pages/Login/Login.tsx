@@ -40,7 +40,7 @@ function Login() {
           <form onSubmit={formik.handleSubmit} className={clsx(styles.card)}>
             <div className={clsx(styles.cardBody)}>
               <div className="flex-box mb-[30px]">
-                <Logo className="w-[130px] h-[66px]" />
+                <Logo className="h-[66px] w-[130px]" />
               </div>
 
               <FormInput

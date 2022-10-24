@@ -12,11 +12,13 @@
 
     .wrapper-item {
       @apply cursor-pointer;
+
       width: fit-content;
 
       &:hover,
       &.active {
         @apply underline;
+
         color: rgb(var(--color-blue-1));
       }
     }

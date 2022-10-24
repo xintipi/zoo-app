@@ -1,8 +1,9 @@
 * {
   @apply mx-0 my-0 px-0 py-0 box-border;
 }
-*:before,
-*:after {
+
+*::before,
+*::after {
   @apply box-border;
 }
 
@@ -12,32 +13,41 @@ body,
 #root > * {
   @apply h-full;
 }
+
 a {
   @apply box-border;
 }
+
 img {
   @apply max-w-full block;
 }
+
 body {
   @apply text-skin-dark-3;
+
   font-family: var(--font-family-heading);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
 }
+
 input,
 button,
 select,
 textarea {
   @apply outline-none;
+
   font-family: var(--font-family-form);
   font-size: var(--font-size-base);
 }
+
 input {
   line-height: normal;
 }
+
 button {
   @apply outline-none;
 }
+
 h1,
 h2,
 h3,
