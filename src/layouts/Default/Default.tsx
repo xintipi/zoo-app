@@ -1,9 +1,11 @@
 import { Layout } from 'antd'
+import clsx from 'clsx'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import Header from '../Header/Header'
 import Sidebar from '../Sidebar/Sidebar'
+import styles from './Default.module.scss'
 
 const { Content } = Layout
 
@@ -15,14 +17,14 @@ function Default() {
   }
 
   return (
-    <Layout className="site-layout">
+    <Layout className={clsx(styles.siteLayout)}>
       <Sidebar collapsed={collapsed} toggle={toggle} />
 
       <Layout>
         <Header />
 
-        <Layout className="site-layout">
-          <Content className="site-layout-background">
+        <Layout className={styles.siteLayout}>
+          <Content className={styles.siteLayoutBackground}>
             <Outlet />
           </Content>
         </Layout>

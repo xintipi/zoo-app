@@ -2,13 +2,13 @@
   @apply flex px-0 py-0 z-[9] h-[56px] bg-white;
 
   &-main {
-    @apply flex justify-between items-center flex-1 py-0 px-[15px] leading-[var(--line-height-base)] shadow-[4px_4px_10px_rgb(var(--color-white-1))];
+    @apply flex justify-between items-center flex-1 py-0 px-4 leading-[var(--line-height-base)] shadow-[4px_4px_10px_rgb(var(--color-white-1))];
 
     .actions {
       @apply flex-box h-full;
 
       .user-action {
-        @apply flex-box h-[32px] w-[32px] ml-[20px] px-0 py-0 rounded-[50%] cursor-pointer;
+        @apply flex-box h-8 w-8 ml-5 px-0 py-0 rounded-[50%] cursor-pointer;
         border: 1px solid rgb(var(--color-white-1));
       }
     }
