@@ -1,15 +1,12 @@
-import { Draft } from '@reduxjs/toolkit'
 import { Drawer, DrawerProps, Tooltip, TooltipProps } from 'antd'
 import clsx from 'clsx'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useDispatch, useSelector } from 'react-redux'
 
 import { ReactComponent as LanguageSVG } from '@/assets/icons/language.svg'
 import { LOCALES } from '@/enums'
+import { useLocale } from '@/hooks/useLocale'
 import { Locales } from '@/interface/locales.interface'
-import { State } from '@/stores'
-import { setLocaleState } from '@/stores/modules/global.store'
 
 import styles from './DrawerLanguage.module.scss'
 
@@ -30,15 +27,9 @@ const locales: ILocales[] = [
 ]
 
 function DrawerLanguage({ className, title, placement }: IProps) {
-  const { t, i18n } = useTranslation()
-  const { locale } = useSelector((state: Draft<State>) => state.global)
-  const dispatch = useDispatch()
   const [open, setOpen] = useState<DrawerProps['open']>(false)
-
-  const onChangeLocales = (locale: Locales) => {
-    dispatch(setLocaleState(locale))
-    i18n.changeLanguage(locale).then((r) => r)
-  }
+  const { t } = useTranslation()
+  const { locale, toggleLocale } = useLocale()
 
   return (
     <div className={className}>
@@ -66,7 +57,7 @@ function DrawerLanguage({ className, title, placement }: IProps) {
               className={clsx(styles.wrapperItem, 'px-[5px]', 'py-[5px]', {
                 [styles.active]: locale === lang.locale,
               })}
-              onClick={() => onChangeLocales(lang.locale)}>
+              onClick={() => toggleLocale(lang.locale)}>
               {lang.value}
             </li>
           ))}

@@ -1,13 +1,11 @@
-import { Draft } from '@reduxjs/toolkit'
 import { Breadcrumb as BreadcrumbComponent, BreadcrumbProps } from 'antd'
 import { Route } from 'antd/es/breadcrumb/Breadcrumb'
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
 import { Link, useLocation, useParams } from 'react-router-dom'
 
 import { useRoutePath } from '@/hooks'
-import { State } from '@/stores'
+import { useLocale } from '@/hooks/useLocale'
 
 type BreadcrumbRoute = Route & {
   search?: string
@@ -21,7 +19,7 @@ function Breadcrumb() {
   const { t } = useTranslation()
   const location = useLocation()
   const params = useParams()
-  const { locale } = useSelector((state: Draft<State>) => state.global)
+  const { locale } = useLocale()
   const [routes, setRoutes] = useState<BreadcrumbRoute[]>([])
 
   const staffMap: BreadcrumbRoute = useMemo(() => {

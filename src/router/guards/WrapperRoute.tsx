@@ -1,10 +1,8 @@
-import { Draft } from '@reduxjs/toolkit'
 import { FC, ReactElement, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 
-import { State } from '@/stores'
+import { useLocale } from '@/hooks/useLocale'
 
 import AuthGuard from './AuthGuard'
 import LoginGuard from './LoginGuard'
@@ -19,7 +17,7 @@ interface WrapperRouteProps {
 const WrapperRoute: FC<WrapperRouteProps> = ({ title, auth, guard, ...props }) => {
   const { t } = useTranslation()
   const location = useLocation()
-  const { locale } = useSelector((state: Draft<State>) => state.global)
+  const { locale } = useLocale()
 
   const component = useMemo(() => {
     return {

@@ -4,16 +4,14 @@ import {
   MenuUnfoldOutlined,
   SettingOutlined,
 } from '@ant-design/icons'
-import { Draft } from '@reduxjs/toolkit'
 import { Layout } from 'antd'
 import { ItemType } from 'antd/es/menu/hooks/useItems'
 import clsx from 'clsx'
 import { SetStateAction, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 
-import { State } from '@/stores'
+import { useLocale } from '@/hooks/useLocale'
 
 import MenuComponent from './Menu'
 import styles from './Sidebar.module.scss'
@@ -28,7 +26,7 @@ interface IProps {
 function Sidebar({ collapsed, toggle }: IProps) {
   const location = useLocation()
   const { t } = useTranslation()
-  const { locale } = useSelector((state: Draft<State>) => state.global)
+  const { locale } = useLocale()
 
   const [openKey, setOpenkey] = useState<string>()
   const [selectedKey, setSelectedKey] = useState<string>(location.pathname)
