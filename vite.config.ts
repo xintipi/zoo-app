@@ -90,5 +90,7 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: 'src/setup.test.ts',
+    reporters: 'verbose',
+    watch: false,
   },
 })
