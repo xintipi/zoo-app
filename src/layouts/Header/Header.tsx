@@ -1,17 +1,10 @@
-import {
-  LogoutOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UserOutlined,
-} from '@ant-design/icons'
-import { Dropdown, Layout, Menu, MenuProps } from 'antd'
-import { ItemType } from 'antd/es/menu/hooks/useItems'
+import { LogoutOutlined, UserOutlined } from '@ant-design/icons'
+import { Dropdown, Layout, MenuProps } from 'antd'
 import clsx from 'clsx'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-import Logo from '@/assets/logo.svg'
 import Breadcrumb from '@/components/shared/Breadcrumb'
 import DrawerLanguage from '@/components/shared/DrawerLanguage'
 
@@ -23,7 +16,7 @@ function Header() {
   const navigate = useNavigate()
   const { t } = useTranslation()
 
-  const menus: ItemType[] = [
+  const items: MenuProps['items'] = [
     {
       key: 'profile',
       label: t<string>('common:user_profile'),
@@ -44,6 +37,11 @@ function Header() {
     }
   }
 
+  const menuProps = {
+    items,
+    onClick: onClick,
+  }
+
   const onHandleProfile = () => {
     navigate('/profile')
   }
@@ -60,10 +58,7 @@ function Header() {
         <div className={clsx(styles.actions)}>
           <DrawerLanguage title={t<string>('common:change_language')} placement="bottom" />
 
-          <Dropdown
-            overlay={
-              <Menu className={clsx(styles.dropdownMenu)} onClick={onClick} items={menus} />
-            }>
+          <Dropdown menu={menuProps} overlayClassName={styles.dropdownMenu}>
             <span className={clsx(styles.userAction)}>
               <UserOutlined />
             </span>
