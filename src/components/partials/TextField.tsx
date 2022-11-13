@@ -1,6 +1,6 @@
 import { Input } from 'antd'
 
-import { IProps } from './FormInput'
+import { IProps } from '../form/Input'
 
 const { Password } = Input
 

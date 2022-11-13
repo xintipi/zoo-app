@@ -1,5 +1,3 @@
-const enum CookieEnum {
+export enum CookieEnum {
   Name = 'access_token',
 }
-
-export default CookieEnum

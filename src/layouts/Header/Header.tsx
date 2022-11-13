@@ -12,8 +12,8 @@ import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 
 import Logo from '@/assets/logo.svg'
-import Breadcrumb from '@/components/Breadcrumb/Breadcrumb'
-import DrawerLanguage from '@/components/DrawerLanguage/DrawerLanguage'
+import Breadcrumb from '@/components/shared/Breadcrumb'
+import DrawerLanguage from '@/components/shared/DrawerLanguage'
 
 import styles from './Header.module.scss'
 

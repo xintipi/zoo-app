@@ -1,6 +1,4 @@
-const enum LocalesEnum {
+export enum LocalesEnum {
   en_US = 'en',
   ja_JP = 'ja',
 }
-
-export default LocalesEnum

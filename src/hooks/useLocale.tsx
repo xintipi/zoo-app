@@ -1,15 +1,14 @@
-import { createContext, FC, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, FC, useCallback, useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { LOCALES } from '@/enums'
+import { LocalesEnum } from '@/enums/locales.enum'
 import { LocaleContextType, LocaleProviderProps, Locales } from '@/interface/locales.interface'
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined)
 
 const LocaleProvider: FC<LocaleProviderProps> = ({ children }) => {
-  const [locale, setLocale] = useState<Locales>(LOCALES.ja_JP)
+  const [locale, setLocale] = useState<Locales>(LocalesEnum.ja_JP)
   const { i18n } = useTranslation()
-  const value = useMemo(() => ({ locale }), [locale])
 
   const toggleLocale = useCallback(
     (lang: Locales) => {
@@ -26,9 +25,7 @@ const LocaleProvider: FC<LocaleProviderProps> = ({ children }) => {
   }, [i18n])
 
   return (
-    <LocaleContext.Provider value={{ locale: value.locale, toggleLocale }}>
-      {children}
-    </LocaleContext.Provider>
+    <LocaleContext.Provider value={{ locale, toggleLocale }}>{children}</LocaleContext.Provider>
   )
 }
 

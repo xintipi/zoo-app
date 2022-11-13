@@ -4,8 +4,8 @@ import { FormikHelpers, useFormik } from 'formik'
 import { useTranslation } from 'react-i18next'
 
 import { ReactComponent as Logo } from '@/assets/logo.svg'
-import FormInput from '@/components/Shared/FormInput/FormInput'
-import WithTranslateFormErrors from '@/components/Shared/TranslateForm/WithTranslateFormErrors'
+import Input from '@/components/form/Input'
+import TranslateFormErrors from '@/components/shared/TranslateFormErrors'
 import { ILoginRequest } from '@/interface/login.interface'
 import loginForm from '@/schemas/login.form'
 
@@ -33,7 +33,7 @@ function Login() {
   return (
     <div className={clsx(styles.login)}>
       <div className="container-tight max-w-[524px] py-[6px]">
-        <WithTranslateFormErrors
+        <TranslateFormErrors
           errors={formik.errors}
           touched={formik.touched}
           setFieldTouched={formik.setFieldTouched}>
@@ -43,7 +43,7 @@ function Login() {
                 <Logo className="h-[66px] w-[130px]" />
               </div>
 
-              <FormInput
+              <Input
                 name="email"
                 placeholder={t('login:email_placeholder')}
                 label={t('login:email_label')}
@@ -55,7 +55,7 @@ function Login() {
                 required
               />
 
-              <FormInput
+              <Input
                 name="password"
                 type="password"
                 placeholder={t('login:password_placeholder')}
@@ -79,7 +79,7 @@ function Login() {
               </Button>
             </div>
           </form>
-        </WithTranslateFormErrors>
+        </TranslateFormErrors>
       </div>
     </div>
   )

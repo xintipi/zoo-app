@@ -3,7 +3,7 @@ import i18n, { Resource, TFunction } from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 
-import { LOCALES } from '@/enums'
+import { LocalesEnum } from '@/enums/locales.enum'
 
 import en_US from './en-US'
 import ja_JP from './ja-JP'
@@ -19,15 +19,13 @@ i18n
   // pass the i18n instance to react-i18next.
   .use(initReactI18next)
   .init({
-    fallbackLng: LOCALES.ja_JP,
+    lng: localStorage.getItem('i18nextLng') || LocalesEnum.ja_JP,
+    fallbackLng: LocalesEnum.ja_JP,
     // Set default namespace
     defaultNS: 'common',
     resources,
     interpolation: {
-      format: function (value, format: string | undefined) {
-        if (value instanceof Date) return dayjs(value).format(format)
-        return value
-      },
+      escapeValue: false,
     },
   })
   .then((r: TFunction) => r)

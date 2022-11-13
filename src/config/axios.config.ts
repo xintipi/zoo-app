@@ -3,7 +3,7 @@ import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } f
 import Cookies from 'js-cookie'
 import { includes } from 'lodash'
 
-import { COOKIE } from '@/enums'
+import { CookieEnum } from '@/enums/cookie.enum'
 import { history } from '@/router/history'
 import stores from '@/stores'
 import { setLoadingState } from '@/stores/modules/global.store'
@@ -19,7 +19,7 @@ const instance: AxiosInstance = axios.create({
 // Interceptors
 instance.interceptors.request.use(
   (config: AxiosRequestConfig | any): AxiosRequestConfig => {
-    const hasToken = Cookies.get(COOKIE.Name)
+    const hasToken = Cookies.get(CookieEnum.Name)
 
     if (hasToken) config.headers['Authorization'] = `Bearer ${hasToken}`
 

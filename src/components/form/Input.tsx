@@ -2,8 +2,9 @@ import { Form } from 'antd'
 import clsx from 'clsx'
 import { ChangeEvent, FocusEventHandler, useState } from 'react'
 
-import styles from './FormInput.module.scss'
-import TextField from './TextField'
+import styles from '@/styles/modules/Input.module.scss'
+
+import TextField from '../partials/TextField'
 
 const { Item } = Form
 
@@ -21,7 +22,7 @@ export interface IProps {
   onChange: (evt: ChangeEvent<HTMLInputElement>) => void
 }
 
-const FormInput = (props: IProps) => {
+const Input = (props: IProps) => {
   const [value, setValue] = useState<string | ''>(props.value || '')
   const { label, required, errors, name, touched, type, placeholder, onBlur, onChange } = props
 
@@ -54,8 +55,8 @@ const FormInput = (props: IProps) => {
   )
 }
 
-FormInput.defaultProps = {
+Input.defaultProps = {
   type: 'text',
 }
 
-export default FormInput
+export default Input

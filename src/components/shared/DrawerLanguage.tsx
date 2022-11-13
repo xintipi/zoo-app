@@ -1,45 +1,39 @@
-import { Drawer, DrawerProps, Tooltip, TooltipProps } from 'antd'
+import { Drawer, DrawerProps, TooltipProps } from 'antd'
 import clsx from 'clsx'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { ReactComponent as LanguageSVG } from '@/assets/icons/language.svg'
-import { LOCALES } from '@/enums'
+import DrawerTooltip from '@/components/partials/DrawerTooltip'
+import { LocalesEnum } from '@/enums/locales.enum'
 import { useLocale } from '@/hooks/useLocale'
 import { Locales } from '@/interface/locales.interface'
+import styles from '@/styles/modules/DrawerLanguage.module.scss'
 
-import styles from './DrawerLanguage.module.scss'
-
-interface ILocales {
+export interface ILocales {
   locale: Locales
   value: string
 }
 
-interface IProps {
+export interface IProps {
   className?: string
   title?: TooltipProps['title']
   placement?: TooltipProps['placement']
+  hasOpen?: boolean
 }
 
-const locales: ILocales[] = [
-  { locale: LOCALES.ja_JP, value: '日本語' },
-  { locale: LOCALES.en_US, value: 'English' },
+export const locales: ILocales[] = [
+  { locale: LocalesEnum.ja_JP, value: '日本語' },
+  { locale: LocalesEnum.en_US, value: 'English' },
 ]
 
-function DrawerLanguage({ className, title, placement }: IProps) {
-  const [open, setOpen] = useState<DrawerProps['open']>(false)
+function DrawerLanguage({ className, title, placement, hasOpen }: IProps) {
+  const [open, setOpen] = useState<DrawerProps['open']>(hasOpen)
   const { t } = useTranslation()
   const { locale, toggleLocale } = useLocale()
 
   return (
     <div className={className}>
-      <Tooltip title={title} placement={placement}>
-        <LanguageSVG
-          className="text-20"
-          style={{ cursor: 'pointer' }}
-          onClick={() => setOpen(true)}
-        />
-      </Tooltip>
+      <DrawerTooltip title={title} placement={placement} onClick={(event) => setOpen(event)} />
 
       <Drawer
         title={t<string>('common:language')}
@@ -52,6 +46,7 @@ function DrawerLanguage({ className, title, placement }: IProps) {
         <ul className={clsx(styles.wrapper)}>
           {locales.map((lang: ILocales) => (
             <li
+              data-testid={`locale-${lang.locale}`}
               role="presentation"
               key={lang.locale}
               className={clsx(styles.wrapperItem, 'px-[5px]', 'py-[5px]', {
@@ -69,6 +64,7 @@ function DrawerLanguage({ className, title, placement }: IProps) {
 
 DrawerLanguage.defaultProps = {
   placement: 'bottom',
+  hasOpen: false,
 }
 
 export default DrawerLanguage
