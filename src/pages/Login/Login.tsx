@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import { ReactComponent as Logo } from '@/assets/logo.svg'
 import Input from '@/components/form/Input'
+import DrawerLanguage from '@/components/shared/DrawerLanguage'
 import TranslateFormErrors from '@/components/shared/TranslateFormErrors'
 import { ILoginRequest } from '@/interface/login.interface'
 import loginForm from '@/schemas/login.form'
@@ -45,8 +46,8 @@ function Login() {
 
               <Input
                 name="email"
-                placeholder={t('login:email_placeholder')}
-                label={t('login:email_label')}
+                placeholder={t<string>('login:email_placeholder')}
+                label={t<string>('login:email_label')}
                 errors={formik.errors.email}
                 touched={formik.touched.email}
                 onChange={formik.handleChange}
@@ -58,8 +59,8 @@ function Login() {
               <Input
                 name="password"
                 type="password"
-                placeholder={t('login:password_placeholder')}
-                label={t('login:password_label')}
+                placeholder={t<string>('login:password_placeholder')}
+                label={t<string>('login:password_label')}
                 errors={formik.errors.password}
                 touched={formik.touched.password}
                 onChange={formik.handleChange}

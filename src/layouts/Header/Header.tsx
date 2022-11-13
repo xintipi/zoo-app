@@ -7,8 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 import Breadcrumb from '@/components/shared/Breadcrumb'
 import DrawerLanguage from '@/components/shared/DrawerLanguage'
-
-import styles from './Header.module.scss'
+import styles from '@/styles/modules/Header.module.scss'
 
 const { Header: HeaderComponent } = Layout
 

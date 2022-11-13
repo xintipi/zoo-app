@@ -9,10 +9,10 @@ import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import { useLocale } from '@/hooks/useLocale'
+import styles from '@/styles/modules/Default.module.scss'
 
 import Header from '../Header/Header'
 import Sidebar from '../Sidebar/Sidebar'
-import styles from './Default.module.scss'
 
 const { Content } = Layout
 

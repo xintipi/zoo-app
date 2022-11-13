@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { FC, memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import styles from './Menu.module.scss'
+import styles from '@/styles/modules/Menu.module.scss'
 
 interface IMenuProps {
   items: ItemType[]

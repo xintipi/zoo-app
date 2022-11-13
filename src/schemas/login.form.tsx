@@ -17,12 +17,12 @@ function loginForm() {
   const loginSchema = yup.object().shape({
     email: yup
       .string()
-      .email(t('validation:messages.email', { field: t('login:email_label') }))
-      .required(t('validation:messages.required', { field: t('login:email_label') })),
+      .email(t<string>('validation:messages.email', { field: t('login:email_label') }))
+      .required(t<string>('validation:messages.required', { field: t('login:email_label') })),
     password: yup
       .string()
-      .min(6, t('validation:messages.min', { field: t('login:password_label'), length: 6 }))
-      .required(t('validation:messages.required', { field: t('login:password_label') }))
+      .min(6, t<string>('validation:messages.min', { field: t('login:password_label'), length: 6 }))
+      .required(t<string>('validation:messages.required', { field: t('login:password_label') }))
       .regexPassword(t('validation:messages.regex_password')),
   })
 

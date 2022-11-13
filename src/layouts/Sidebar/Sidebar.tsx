@@ -11,10 +11,9 @@ import { SetStateAction, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 
+import MenuComponent from '@/components/partials/Menu'
 import { useLocale } from '@/hooks/useLocale'
-
-import MenuComponent from './Menu'
-import styles from './Sidebar.module.scss'
+import styles from '@/styles/modules/Sidebar.module.scss'
 
 const { Sider } = Layout
 
