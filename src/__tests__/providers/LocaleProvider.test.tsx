@@ -1,13 +1,17 @@
 import { render } from '@testing-library/react'
+import { I18nextProvider } from 'react-i18next'
 import { describe, expect, it } from 'vitest'
 
 import DrawerLanguage, { locales } from '@/components/shared/DrawerLanguage'
 import { LocaleProvider } from '@/hooks/useLocale'
+import I18n from '@/locales/i18n'
 
 const provider = () => {
   return render(
     <LocaleProvider>
-      <DrawerLanguage hasOpen={true} />
+      <I18nextProvider i18n={I18n}>
+        <DrawerLanguage hasOpen={true} />
+      </I18nextProvider>
     </LocaleProvider>
   )
 }
