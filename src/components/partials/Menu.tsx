@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 import styles from '@/styles/modules/Menu.module.scss'
 
-interface IMenuProps {
+export interface IMenuProps {
   items: ItemType[]
   openKey?: string
   onChangeOpenKey: (key?: string) => void
@@ -30,6 +30,7 @@ const MenuComponent: FC<IMenuProps> = (props) => {
 
   return (
     <Menu
+      data-testid="dropdown-ul"
       mode="inline"
       selectedKeys={[selectedKey]}
       openKeys={openKey ? [openKey] : []}
