@@ -1,32 +1,10 @@
 import { renderHook } from '@testing-library/react'
-import type { Location, Params } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 
+import { mockUseLocation, mockUseParams, pathDesire } from '@/__mocks__/react-router-dom'
 import useRoutePath from '@/hooks/useRoutePath'
 
-const mockUseLocation: Location = {
-  pathname: '/setting/1/edit',
-  search: '',
-  hash: '',
-  key: '',
-  state: null,
-}
-
-const mockUseParams: Params = {
-  id: '1',
-}
-
-const pathDesire = '/setting/:id/edit'
-
-vi.mock('react-router-dom', async () => ({
-  ...(await vi.importActual<any>('react-router-dom')),
-  useLocation: vi.fn().mockImplementation(() => {
-    return mockUseLocation
-  }),
-  useParams: vi.fn().mockImplementation(() => {
-    return mockUseParams
-  }),
-}))
+vi.mock('@/__mocks__/react-router-dom')
 
 describe('useRoutePath()', () => {
   it('should return new path string', () => {

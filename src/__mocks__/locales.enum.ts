@@ -2,7 +2,7 @@ import { vi } from 'vitest'
 
 import { LocalesEnum } from '@/enums/locales.enum'
 
-vi.mock('@/enums/locales.enum', async () => ({
+export default {
   ...(await vi.importActual<any>('@/enums/locales.enum')),
   LocalesEnum: { ...LocalesEnum },
-}))
+}
