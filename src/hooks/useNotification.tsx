@@ -2,7 +2,7 @@ import { notification } from 'antd'
 import { IconType } from 'antd/es/notification'
 import { ArgsProps } from 'antd/lib/notification'
 
-interface Notification {
+export interface UseNotificationProps {
   type: IconType
   message?: ArgsProps['message']
   description?: ArgsProps['description']
@@ -19,7 +19,7 @@ function useNotification() {
     placement,
     duration = 2.5,
     maxCount = 1,
-  }: Notification) => {
+  }: UseNotificationProps) => {
     notification[type]({
       message,
       description,

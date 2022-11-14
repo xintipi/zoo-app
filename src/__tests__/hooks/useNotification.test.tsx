@@ -1,5 +1,5 @@
 import { act, renderHook, waitFor } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { useNotification } from '@/hooks'
 
@@ -8,17 +8,21 @@ const makeSut = () => {
 }
 
 describe('useNotification()', () => {
-  it('should call func to open notify', () => {
+  it('should call function', () => {
     const { result } = makeSut()
+    let mockedOpenNoftification: () => void = vi.fn()
     act(() => {
-      result.current.openNotification({
-        type: 'success',
-        message: 'Test notify',
-        description: 'test',
-      })
+      mockedOpenNoftification = () => {
+        result.current.openNotification({
+          type: 'success',
+          message: 'Test notify',
+          description: 'test',
+        })
+      }
+      mockedOpenNoftification()
     })
     waitFor(() => {
-      expect(useNotification()).toHaveBeenCalled()
+      expect(mockedOpenNoftification).toHaveBeenCalled()
     })
   })
 })
