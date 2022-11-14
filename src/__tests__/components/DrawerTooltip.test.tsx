@@ -7,13 +7,13 @@ const makeSut = (props: Partial<DrawerTooltipProps>) => {
   return render(<DrawerTooltip title="Test" placement="topLeft" onClick={vi.fn()} {...props} />)
 }
 
-describe('DrawerTooltip()', () => {
+describe('<DrawerTooltip />', () => {
   it('should call onClick successfully', () => {
     const spy = vi.fn()
 
     const { getByTestId } = makeSut({ onClick: spy })
 
-    fireEvent.click(getByTestId('language-svg'))
+    fireEvent.click(getByTestId('testLanguageSVG'))
 
     expect(spy).toHaveBeenCalled()
   })

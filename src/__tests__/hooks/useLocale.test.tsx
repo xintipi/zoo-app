@@ -9,9 +9,9 @@ import { i18n } from '@/locales'
 
 const makeSut = () => {
   const wrapper = ({ children }: { children: ReactNode }) => (
-    <I18nextProvider i18n={i18n}>
-      <LocaleProvider>{children}</LocaleProvider>
-    </I18nextProvider>
+    <LocaleProvider>
+      <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
+    </LocaleProvider>
   )
   return renderHook(() => useLocale(), { wrapper })
 }

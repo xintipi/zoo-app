@@ -16,7 +16,7 @@ function DrawerTooltip({ title, placement, onClick }: DrawerTooltipProps) {
   return (
     <Tooltip title={title} placement={placement}>
       <LanguageSVG
-        data-testid="language-svg"
+        data-testid="testLanguageSVG"
         className="text-20"
         style={{ cursor: 'pointer' }}
         onClick={handleOnClick}

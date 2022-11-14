@@ -11,7 +11,7 @@ import { SetStateAction, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 
-import MenuComponent from '@/components/partials/Menu'
+import MenuSection from '@/components/partials/MenuSection'
 import { useLocale } from '@/hooks/useLocale'
 import styles from '@/styles/modules/Sidebar.module.scss'
 
@@ -84,7 +84,7 @@ function Sidebar({ collapsed, toggle }: IProps) {
         onClick={toggle}>
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </div>
-      <MenuComponent
+      <MenuSection
         items={items}
         openKey={openKey}
         onChangeOpenKey={onChangeOpenKey}

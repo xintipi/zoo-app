@@ -1,10 +1,10 @@
 import { Menu } from 'antd'
 import { ItemType } from 'antd/es/menu/hooks/useItems'
 import clsx from 'clsx'
-import { FC, memo } from 'react'
+import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import styles from '@/styles/modules/Menu.module.scss'
+import styles from '@/styles/modules/MenuSection.module.scss'
 
 export interface IMenuProps {
   items: ItemType[]
@@ -14,7 +14,7 @@ export interface IMenuProps {
   onChangeSelectedKey: (key: string) => void
 }
 
-const MenuComponent: FC<IMenuProps> = (props) => {
+const MenuSection: FC<IMenuProps> = (props) => {
   const { items, openKey, selectedKey, onChangeOpenKey, onChangeSelectedKey } = props
   const navigate = useNavigate()
 
@@ -30,7 +30,7 @@ const MenuComponent: FC<IMenuProps> = (props) => {
 
   return (
     <Menu
-      data-testid="dropdown-ul"
+      data-testid="testMenu"
       mode="inline"
       selectedKeys={[selectedKey]}
       openKeys={openKey ? [openKey] : []}
@@ -42,4 +42,4 @@ const MenuComponent: FC<IMenuProps> = (props) => {
   )
 }
 
-export default memo(MenuComponent)
+export default MenuSection
