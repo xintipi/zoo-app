@@ -1,6 +1,6 @@
 import { createBrowserHistory } from 'history'
 import { createElement, FC, ReactElement, useLayoutEffect, useState } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { Router } from 'react-router-dom'
 
 export const history = createBrowserHistory()
 
