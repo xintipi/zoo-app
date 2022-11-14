@@ -31,10 +31,9 @@ const LocaleProvider: FC<LocaleProviderProps> = ({ children }) => {
 
 const useLocale = () => {
   const context = useContext(LocaleContext)
-  if (context === undefined) {
-    throw new Error('useLocale must be used within a LocaleProvider')
+  if (context) {
+    return context
   }
-  return context
 }
 
 export { LocaleProvider, useLocale }

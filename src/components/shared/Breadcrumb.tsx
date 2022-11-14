@@ -4,8 +4,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useLocation, useParams } from 'react-router-dom'
 
-import { useRoutePath } from '@/hooks'
 import { useLocale } from '@/hooks/useLocale'
+import useRoutePath from '@/hooks/useRoutePath'
 
 type BreadcrumbRoute = Route & {
   search?: string

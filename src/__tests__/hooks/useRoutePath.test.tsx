@@ -1,9 +1,8 @@
 import { renderHook } from '@testing-library/react'
-import { after } from 'lodash'
 import { Location, Params, useLocation, useParams } from 'react-router-dom'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { useRoutePath } from '@/hooks'
+import useRoutePath from '@/hooks/useRoutePath'
 
 const router = { useLocation, useParams }
 

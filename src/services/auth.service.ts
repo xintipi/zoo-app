@@ -1,4 +1,4 @@
-import { useAxios } from '@/hooks'
+import useAxios from '@/hooks/useAxios'
 import { IResponseType } from '@/interface/axios.interface'
 import { ILoginRequest, IToken } from '@/interface/login.interface'
 import { IUserProfile } from '@/interface/user.interface'
