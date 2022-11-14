@@ -1,3 +1,3 @@
 export enum CookieEnum {
-  Name = 'access_token',
+  name = 'access_token',
 }

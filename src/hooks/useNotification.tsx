@@ -11,7 +11,7 @@ interface Notification {
   maxCount?: ArgsProps['maxCount']
 }
 
-function UseNotification() {
+function useNotification() {
   const openNotification = ({
     type,
     message,
@@ -32,4 +32,4 @@ function UseNotification() {
   return { openNotification }
 }
 
-export default UseNotification
+export default useNotification
