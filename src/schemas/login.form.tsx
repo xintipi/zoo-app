@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import yup from '@/config/validation.config'
 import { ILoginRequest } from '@/interface/login.interface'
+import { yup } from '@/locales'
 
 function loginForm() {
   const { t } = useTranslation()
