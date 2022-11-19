@@ -9,7 +9,7 @@ const useTranslateFormErrors = ({ errors, touched, setFieldTouched }: ITranslate
   const { i18n } = useTranslation()
 
   useEffect(() => {
-    i18n.on('languageChanged', (lng) => {
+    i18n.on('languageChanged', () => {
       Object.keys(errors).forEach((fieldName) => {
         if (Object.keys(touched).includes(fieldName)) {
           setTimeout(() => setFieldTouched(fieldName))
@@ -17,7 +17,7 @@ const useTranslateFormErrors = ({ errors, touched, setFieldTouched }: ITranslate
       })
     })
     return () => {
-      i18n.off('languageChanged', (lng) => {})
+      i18n.off('languageChanged', () => {})
     }
   }, [errors])
 }
